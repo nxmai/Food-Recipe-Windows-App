@@ -4,9 +4,39 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FoodRecipe"
+        xmlns:fa="http://schemas.fontawesome.io/icons/"
         mc:Ignorable="d"
         Title="MainWindow" Height="550" Width="900">
     <Grid>
-        
+        <Grid Height="50" VerticalAlignment="Bottom" Background="#f7ce38">
+            <Button Width="180" HorizontalAlignment="Left" Background="#f7ce38" BorderThickness="0">
+                <StackPanel VerticalAlignment="Center">
+                    <fa:ImageAwesome Icon="Home" Foreground="#28292c" Width="20"></fa:ImageAwesome>
+                </StackPanel>
+            </Button>
+            
+            <Button Width="180" HorizontalAlignment="Stretch" Margin="180,0,533.333,0" Background="#f7ce38" BorderThickness="0">
+                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <fa:ImageAwesome Icon="Heart" Foreground="#28292e" Width="20" HorizontalAlignment="Center"></fa:ImageAwesome>
+                </StackPanel>
+            </Button>
+            <Button Width="180" Margin="355,0,358.333,0" Background="#f7ce38" BorderThickness="0">
+                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <fa:ImageAwesome Icon="Plus" Width="20" Foreground="#28292e"></fa:ImageAwesome>
+                </StackPanel>
+            </Button>
+            <Button Width="180" Margin="533,0,180.333,0" Background="#f7ce38" BorderThickness="0">
+                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <fa:ImageAwesome Icon="Question" Width="15" Foreground="#28292e" HorizontalAlignment="Center"></fa:ImageAwesome>
+                </StackPanel>
+            </Button>
+            <Button Width="180" HorizontalAlignment="Right" Background="#f7ce38" BorderThickness="0">
+                <StackPanel VerticalAlignment="Center">
+                    <fa:ImageAwesome Icon="Bitbucket" Width="20" Foreground="#28292e"></fa:ImageAwesome>
+                </StackPanel>
+            </Button>
+            
+            
+        </Grid>
     </Grid>
 </Window>
