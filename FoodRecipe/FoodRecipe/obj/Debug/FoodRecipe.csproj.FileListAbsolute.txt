@@ -1,0 +1,16 @@
+D:\Xuan Mai\HCMUS\5\Windows\Project 1\FoodRecipe\FoodRecipe\bin\Debug\FoodRecipe.exe.config
+D:\Xuan Mai\HCMUS\5\Windows\Project 1\FoodRecipe\FoodRecipe\bin\Debug\FoodRecipe.exe
+D:\Xuan Mai\HCMUS\5\Windows\Project 1\FoodRecipe\FoodRecipe\bin\Debug\FoodRecipe.pdb
+D:\Xuan Mai\HCMUS\5\Windows\Project 1\FoodRecipe\FoodRecipe\obj\Debug\FoodRecipe.csprojAssemblyReference.cache
+D:\Xuan Mai\HCMUS\5\Windows\Project 1\FoodRecipe\FoodRecipe\obj\Debug\MainWindow.g.cs
+D:\Xuan Mai\HCMUS\5\Windows\Project 1\FoodRecipe\FoodRecipe\obj\Debug\App.g.cs
+D:\Xuan Mai\HCMUS\5\Windows\Project 1\FoodRecipe\FoodRecipe\obj\Debug\FoodRecipe_MarkupCompile.cache
+D:\Xuan Mai\HCMUS\5\Windows\Project 1\FoodRecipe\FoodRecipe\obj\Debug\FoodRecipe_MarkupCompile.lref
+D:\Xuan Mai\HCMUS\5\Windows\Project 1\FoodRecipe\FoodRecipe\obj\Debug\MainWindow.baml
+D:\Xuan Mai\HCMUS\5\Windows\Project 1\FoodRecipe\FoodRecipe\obj\Debug\FoodRecipe.g.resources
+D:\Xuan Mai\HCMUS\5\Windows\Project 1\FoodRecipe\FoodRecipe\obj\Debug\FoodRecipe.Properties.Resources.resources
+D:\Xuan Mai\HCMUS\5\Windows\Project 1\FoodRecipe\FoodRecipe\obj\Debug\FoodRecipe.csproj.GenerateResource.cache
+D:\Xuan Mai\HCMUS\5\Windows\Project 1\FoodRecipe\FoodRecipe\obj\Debug\FoodRecipe.exe
+D:\Xuan Mai\HCMUS\5\Windows\Project 1\FoodRecipe\FoodRecipe\obj\Debug\FoodRecipe.pdb
+D:\Xuan Mai\HCMUS\5\Windows\Project 1\FoodRecipe\FoodRecipe\obj\Debug\SplashScreen.g.cs
+D:\Xuan Mai\HCMUS\5\Windows\Project 1\FoodRecipe\FoodRecipe\obj\Debug\SplashScreen.baml

@@ -1,0 +1,28 @@
+﻿<Window x:Class="FoodRecipe.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FoodRecipe"
+        mc:Ignorable="d"
+        Title="Splash Screen" Height="600" Width="500">
+    <Canvas>
+        <Image Height="189" Canvas.Left="41" Canvas.Top="36" 
+               Width="186" Name="image1"/>
+        <Image Height="189" Canvas.Left="264" Canvas.Top="36" 
+               Width="190" Name="image2"/>
+        <Label  Canvas.Left="136" Canvas.Top="263" 
+               Width="229" Height="30" Name="FoodName" HorizontalContentAlignment="Center"/>
+        <TextBlock Canvas.Left="68" TextWrapping="Wrap" 
+                   Canvas.Top="326" Height="126" 
+                   Width="350" Name="FoodContent"
+                   HorizontalAlignment="Center" TextAlignment="Justify"/>
+        <Button Content="Tiếp theo" Canvas.Left="211" Canvas.Top="477" 
+                Width="75" Click="continue_click"/>
+        <CheckBox Content="Không hiện hộp thoại này mỗi khi khởi động" Canvas.Left="119" 
+                  Canvas.Top="528" HorizontalAlignment="Center"
+                  />
+
+
+    </Canvas>
+</Window>
