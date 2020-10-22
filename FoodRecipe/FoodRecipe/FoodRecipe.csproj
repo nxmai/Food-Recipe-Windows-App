@@ -106,8 +106,18 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="SplashImages\soybean.jpg" />
+    <Resource Include="SplashImages\chocolate.jpg" />
+    <Resource Include="SplashImages\egg.jpg" />
+    <Resource Include="SplashImages\meat.jpg" />
+    <Resource Include="SplashImages\milk.jpg" />
+    <Resource Include="SplashImages\persimmon.jpg" />
+    <Resource Include="SplashImages\potato.jpg" />
+    <Resource Include="SplashImages\shrimp.jpg" />
+    <Resource Include="SplashImages\soy-bean.jpg" />
+    <Resource Include="SplashImages\soy-milk.jpg" />
     <Resource Include="SplashImages\spinach.jpg" />
+    <Resource Include="SplashImages\vitaminc.jpg" />
+    <Resource Include="SplashImages\watermelon.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

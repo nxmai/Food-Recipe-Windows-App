@@ -5,22 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FoodRecipe"
         mc:Ignorable="d"
-        Title="Splash Screen" Height="600" Width="500">
+        Title="Splash Screen" Height="550" Width="550">
     <Canvas>
-        <Image Height="189" Canvas.Left="41" Canvas.Top="36" 
-               Width="186" Name="image1"/>
-        <Image Height="189" Canvas.Left="264" Canvas.Top="36" 
-               Width="190" Name="image2"/>
-        <Label  Canvas.Left="136" Canvas.Top="263" 
-               Width="229" Height="30" Name="FoodName" HorizontalContentAlignment="Center"/>
-        <TextBlock Canvas.Left="68" TextWrapping="Wrap" 
-                   Canvas.Top="326" Height="126" 
-                   Width="350" Name="FoodContent"
-                   HorizontalAlignment="Center" TextAlignment="Justify"/>
-        <Button Content="Tiếp theo" Canvas.Left="211" Canvas.Top="477" 
-                Width="75" Click="continue_click"/>
-        <CheckBox Content="Không hiện hộp thoại này mỗi khi khởi động" Canvas.Left="119" 
-                  Canvas.Top="528" HorizontalAlignment="Center"
+        <Image Height="215" Canvas.Left="40" Canvas.Top="24" RenderOptions.BitmapScalingMode="HighQuality" 
+               Width="215" Name="image1"/>
+        <Image Height="215" Canvas.Left="283" Canvas.Top="24" RenderOptions.BitmapScalingMode="HighQuality"
+               Width="215" Name="image2"/>
+        <TextBlock  Canvas.Left="100" Canvas.Top="262" 
+               Width="350" Height="36" Name="FoodName" TextAlignment="Center" 
+                VerticalAlignment="Center" FontSize="20" FontWeight="Bold" FontFamily="Arial Rounded MT Bold"
+                    Foreground="#f37021"/>
+        <TextBlock Canvas.Left="40" TextWrapping="Wrap" 
+                   Canvas.Top="307" Height="110"  FontSize="14" Foreground="#28292e"
+                   Width="458" Name="FoodContent" VerticalAlignment="Center"
+                   HorizontalAlignment="Center" TextAlignment="Justify" FontFamily="Calibri"/>
+        <Button Content="Tiếp theo" Canvas.Left="212" Canvas.Top="430" 
+                Width="120" Height="33" Click="continue_click" VerticalAlignment="Center"
+                Style="{StaticResource RoundButtonTemplate}" Background="#f7ce38"
+                Foreground="#28292e" FontWeight="Bold" FontSize="13"/>
+        <CheckBox Content="Không hiện hộp thoại này mỗi khi khởi động" Canvas.Left="143" 
+                  Canvas.Top="481" HorizontalAlignment="Center"
                   />
 
 

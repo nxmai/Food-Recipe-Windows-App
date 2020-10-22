@@ -33,3 +33,4 @@ D:\Xuan Mai\HCMUS\5\Windows\Project 1\Food-Recipe-Windows-App\FoodRecipe\FoodRec
 D:\Xuan Mai\HCMUS\5\Windows\Project 1\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\bin\Debug\FontAwesome.WPF.dll
 D:\Xuan Mai\HCMUS\5\Windows\Project 1\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\bin\Debug\FontAwesome.WPF.xml
 D:\Xuan Mai\HCMUS\5\Windows\Project 1\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\obj\Debug\FoodRecipe.csproj.CopyComplete
+D:\Xuan Mai\HCMUS\5\Windows\Project 1\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\obj\Debug\App.baml
