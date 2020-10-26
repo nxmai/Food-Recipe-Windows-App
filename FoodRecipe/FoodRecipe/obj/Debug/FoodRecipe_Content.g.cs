@@ -10,6 +10,7 @@
 
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("icon/next.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("icon/add.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("icon/reset.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("icon/save.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("icon/up.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("icon/down.png")]

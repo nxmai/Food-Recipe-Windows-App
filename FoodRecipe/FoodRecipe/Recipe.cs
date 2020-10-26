@@ -15,49 +15,58 @@ namespace FoodRecipe
 {
     class Recipe
     {
-        private String name { get; set; }
-        private String description { get; set; }
-        private String thumbnailPath { get; set; }
-        private bool isFavorite { get; set; }
-        private List<List<String>> step { get; set; } 
-        //link youtube
+        public String name { get; set; }
+        public String ingredient { get; set; }
+        public String thumbnailPath { get; set; }
+        public bool isFavorite { get; set; }
+        public List<List<String>> step { get; set; }
+        public String youtubeLink { get; set; }
         //
-        public Recipe(String newName, String newDescription, String newThumbnailPath, bool newIsFavorite, List<List<String>> newStep)
+        public Recipe(String newName, String newIngredient, String newThumbnailPath, String newYoutubeLink, bool newIsFavorite, List<List<String>> newStep)
         {
             name = newName;
-            description = newDescription;
+            ingredient = newIngredient;
             thumbnailPath = newThumbnailPath;
             isFavorite = newIsFavorite;
+            youtubeLink = newYoutubeLink;
             step = newStep;
+        }
+        public Recipe() 
+        {
+            name = "";
+            ingredient = "";
+            thumbnailPath = "";
+            isFavorite = false;
+            step = new List<List<string>>();
+           
         }
         public bool SaveToFiles(String pathRoot)
         {
             bool result = true;
             try
             {
-                String pathFood = $@"{pathRoot}/Recipe/{name}";
-                String pathStep = $@"{pathFood}/Steps";
+                String pathFood = $"{pathRoot}Data/{name}";
                 System.IO.Directory.CreateDirectory(pathFood);
-                System.IO.Directory.CreateDirectory(pathStep);
-                var thumbnail = new Bitmap($@"{this.thumbnailPath}");
-                thumbnail.Save($@"{pathFood}/thumbnail.png");
-                using (var file = new System.IO.StreamWriter($@"{pathFood}/desription.txt"))
+                var thumbnail = new Bitmap($"{this.thumbnailPath}");
+                thumbnail.Save($"{pathFood}/thumbnail.jpg");
+                using (var file = new System.IO.StreamWriter($"{pathFood}/description.txt"))
                 {
-                    file.WriteLine($"Description : {this.description}");
                     file.WriteLine($"Favorite : {this.isFavorite}");
+                    file.WriteLine($"Youtube : {this.youtubeLink}");
+                    file.WriteLine($"Ingredient : {this.ingredient}");
                 }
                 for (int i=1; i<=this.step.Count(); i++)
                 {
-                    System.IO.Directory.CreateDirectory($@"{pathFood}/{i}");
-                    using (var file = new System.IO.StreamWriter($@"{pathFood}/{i}/tutorial.txt"))
+                    System.IO.Directory.CreateDirectory($"{pathFood}/{i}");
+                    using (var file = new System.IO.StreamWriter($"{pathFood}/{i}/text.txt"))
                     {
                         file.WriteLine(this.step[i-1][0]);
                     }
                     
-                    for (int j = 1; j < this.step[i].Count;j++)
+                    for (int j = 1; j < this.step[i-1].Count;j++)
                     {
-                        var imageStep = new Bitmap($@"{this.step[i][j]}");
-                        imageStep.Save($@"{pathFood}/{i}/{j}.png");
+                        var imageStep = new Bitmap($"{this.step[i-1][j]}");
+                        imageStep.Save($"{pathFood}/{i}/{j}.jpg");
                     }
                 }
             }
@@ -72,54 +81,64 @@ namespace FoodRecipe
             }
             return result;
         }
-        public bool GetFromFiles(String pathRoot, String pathFood)
+        public bool GetFromFiles(String pathRoot, String foodName)
         {
             bool result = false;
             try
             {
-                this.thumbnailPath = $"{pathFood}/thumbnail.png";
-                String pathStep = $"{pathFood}/Steps";
+                this.name = foodName;
+                String pathFood = $"{pathRoot}Data/{foodName}";
+                this.thumbnailPath = $"{pathFood}/thumbnail.jpg";
                 var thumbnail = new BitmapImage(
                      new Uri(
                             $"{thumbnailPath}",
-                            UriKind.RelativeOrAbsolute)
+                            UriKind.Absolute)
                     );
 
-                using (var file = new System.IO.StreamReader($"{pathFood}/desription.txt"))
+                using (var file = new System.IO.StreamReader($"{pathFood}/description.txt"))
                 {
                     var tmp = file.ReadLine();
-                    var tokens = tmp.Split(new String[] { ":"}, StringSplitOptions.RemoveEmptyEntries);
-                    if (tokens[0] == "Description")
-                    {
-                        this.description = tokens[1];
-                    }
-                    file.ReadLine();
-                    tokens = tmp.Split(new String[] { ":" }, StringSplitOptions.RemoveEmptyEntries);
+                    var tokens = tmp.Split(new String[] { " : "}, StringSplitOptions.RemoveEmptyEntries);
                     if (tokens[0] == "Favorite")
                     {
-                        if (tokens[1] == "1")
+                        if (tokens[1] == "True")
                             this.isFavorite = true;
                         else
                             this.isFavorite = false;
                     }
-
-                    var stepCount = new DirectoryInfo($@"{pathFood}").GetDirectories().Length;
-                    for (int i = 1; i <= stepCount; i++)
+                    tmp = file.ReadLine();
+                    tokens = tmp.Split(new String[] { " : " }, StringSplitOptions.RemoveEmptyEntries);
+                    if (tokens[0] == "Youtube")
                     {
-                        System.IO.Directory.CreateDirectory($@"{pathFood}/{i}");
-                        using (var file1 = new System.IO.StreamReader($@"{pathFood}/{i}/tutorial.txt"))
-                        {
-                            this.step[i - 1][0] = file1.ReadToEnd();
-                        }
-
-                        var ImagesListObj = new DirectoryInfo($@"{pathFood}/{i}").GetFiles("*.png");
-                        for (int j = 0; j < ImagesListObj.Length; j++)
-                        {
-                            step[i - 1][j] = ImagesListObj[j].DirectoryName;
-                        }
+                        this.youtubeLink = tokens[1];
                     }
-                    
+                    tmp = file.ReadLine();
+                    tokens = tmp.Split(new String[] { " : " }, StringSplitOptions.RemoveEmptyEntries);
+                    if (tokens[0] == "Ingredient")
+                    {
+                        this.ingredient = tokens[1];
+                    }
                 }
+
+                var stepCount = new DirectoryInfo($"{pathFood}").GetDirectories().Length;
+                for (int i = 1; i <= stepCount; i++)
+                {
+                    List<String> tmpStep = new List<string>();
+                    System.IO.Directory.CreateDirectory($"{pathFood}/{i}");
+                    using (var file1 = new System.IO.StreamReader($"{pathFood}/{i}/text.txt"))
+                    {
+                        tmpStep.Add(file1.ReadToEnd());
+                    }
+
+                    var ImagesListObj = new DirectoryInfo($"{pathFood}/{i}").GetFiles("*.jpg");
+                    for (int j = 0; j < ImagesListObj.Length; j++)
+                    {
+                        tmpStep.Add(ImagesListObj[j].DirectoryName);
+                    }
+                    this.step.Add(tmpStep);
+                }
+
+
             }
             catch (Exception e)
             {
@@ -131,6 +150,15 @@ namespace FoodRecipe
                 result = false;
             }
             return result;
+        }
+        public void UpdateRecipe(String newName, String newIngredient, String newThumbnailPath, String newYoutubeLink, bool newIsFavorite, List<List<String>> newStep)
+        {
+            name = newName;
+            ingredient = newIngredient;
+            thumbnailPath = newThumbnailPath;
+            isFavorite = newIsFavorite;
+            youtubeLink = newYoutubeLink;
+            step = newStep;
         }
     }
 }
