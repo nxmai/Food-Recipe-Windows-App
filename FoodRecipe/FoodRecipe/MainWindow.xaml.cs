@@ -24,5 +24,11 @@ namespace FoodRecipe
         {
             InitializeComponent();
         }
+
+        private void addRecipe_Click(object sender, RoutedEventArgs e)
+        {
+            var screen = new AddRecipeWindow();
+            screen.Show();
+        }
     }
 }
