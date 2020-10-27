@@ -125,7 +125,7 @@ namespace FoodRecipe
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            Recipe recipe = new Recipe(FoodName.Text,FoodIngredient.Text,thumbnailPath,YoutubeLink.Text,false,Steps);
+            Recipe recipe = new Recipe(FoodName.Text,FoodIngredient.Text,thumbnailPath,YoutubeLink.Text,false,Steps, "HeartOutline","White");
             if (recipe.SaveToFiles($"{pathRoot}"))
             {
                 MessageBox.Show("Đã thêm công thức");

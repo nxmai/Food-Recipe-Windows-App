@@ -24,13 +24,14 @@ namespace FoodRecipe
         public MainWindow()
         {
             InitializeComponent();
-            String pathRoot = AppDomain.CurrentDomain.BaseDirectory;
-            List<Recipe> recipes = GetAllRecipe(pathRoot);
-            for (int i = 0; i < recipes.Count(); i++)
-            {
-                //MessageBox.Show($"{recipes[i].name}\n{recipes[i].ingredient}\n{recipes[i].thumbnailPath}");
-            }
+           
+
         }
+
+        List<Recipe> recipes;
+        int currentPageIndex = 0;
+        int itemPerPage = 8;
+        int totalPage;
 
         public List<Recipe> GetAllRecipe(String pathRoot)
         {
@@ -42,13 +43,80 @@ namespace FoodRecipe
                 Recipe tmp = new Recipe();
                 tmp.GetFromFiles(pathRoot, $"{recipeDirInfor[i].Name}");
                 recipes.Add(tmp);
+
+                
             }
             return recipes;
         }
 
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            String pathRoot = AppDomain.CurrentDomain.BaseDirectory;
+            recipes = GetAllRecipe(pathRoot);
+
+
+            int itemCount = recipes.Count();
+
+            totalPage = itemCount / itemPerPage;
+            if (itemCount % itemPerPage != 0)
+            {
+                totalPage += 1;
+            }
+
+            
+            currentPageIndex = 1;
+            dataListView.ItemsSource = recipes.Take(itemPerPage);
+        }
+
+
         private void addRecipe_Click(object sender, RoutedEventArgs e)
         {
             
+        }
+
+        private void Prv_Click(object sender, RoutedEventArgs e)
+        {
+            if (currentPageIndex <= totalPage )
+            {
+                currentPageIndex--;
+                dataListView.ItemsSource = recipes.Skip((currentPageIndex - 1) * itemPerPage).Take(itemPerPage);
+                if (currentPageIndex <= 1)
+                {
+                    currentPageIndex = 1;
+                }
+            }
+        }
+
+        private void Page1_Click(object sender, RoutedEventArgs e)
+        {
+            currentPageIndex = 1;
+            dataListView.ItemsSource = recipes.Take(itemPerPage);
+        }
+
+        private void Page2_Click(object sender, RoutedEventArgs e)
+        {
+            currentPageIndex = 2;
+            dataListView.ItemsSource=recipes.Skip((currentPageIndex-1)*itemPerPage).Take(itemPerPage);
+        }
+
+        private void Page3_Click(object sender, RoutedEventArgs e)
+        {
+            currentPageIndex = 3;
+            dataListView.ItemsSource = recipes.Skip((currentPageIndex - 1) * itemPerPage).Take(itemPerPage);
+        }
+
+        private void Nxt_Click(object sender, RoutedEventArgs e)
+        {
+            if (currentPageIndex < totalPage)
+            {
+                currentPageIndex++;
+                dataListView.ItemsSource = recipes.Skip((currentPageIndex - 1) * itemPerPage).Take(itemPerPage);
+            }
+        }
+
+        private void Favorite_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

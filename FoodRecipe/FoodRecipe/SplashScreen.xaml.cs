@@ -64,7 +64,7 @@ namespace FoodRecipe
 
         private void continue_click(object sender, RoutedEventArgs e)
         {
-            var screen = new Window2(); //window2 == homescreen
+            var screen = new MainWindow(); //window2 == homescreen
             this.Close();
             screen.ShowDialog();
          

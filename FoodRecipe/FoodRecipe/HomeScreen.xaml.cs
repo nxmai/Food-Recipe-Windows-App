@@ -22,31 +22,10 @@ namespace FoodRecipe
         public Window2()
         {
             InitializeComponent();
+
+            
         }
 
-        private void Page1_Click(object sender, RoutedEventArgs e)
-        {
 
-        }
-
-        private void Page2_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Page3_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Nxt_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Prv_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }

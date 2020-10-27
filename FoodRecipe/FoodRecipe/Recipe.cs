@@ -21,8 +21,10 @@ namespace FoodRecipe
         public bool isFavorite { get; set; }
         public List<List<String>> step { get; set; }
         public String youtubeLink { get; set; }
+        public String heartShape { get; set; }
+        public String heartColor { get; set; }
         //
-        public Recipe(String newName, String newIngredient, String newThumbnailPath, String newYoutubeLink, bool newIsFavorite, List<List<String>> newStep)
+        public Recipe(String newName, String newIngredient, String newThumbnailPath, String newYoutubeLink, bool newIsFavorite, List<List<String>> newStep, String newHeartShape, String newHeartColor)
         {
             name = newName;
             ingredient = newIngredient;
@@ -30,6 +32,8 @@ namespace FoodRecipe
             isFavorite = newIsFavorite;
             youtubeLink = newYoutubeLink;
             step = newStep;
+            heartShape = newHeartShape;
+            heartColor = newHeartColor;
         }
         public Recipe() 
         {
@@ -112,6 +116,11 @@ namespace FoodRecipe
                     tmp = file.ReadLine();
                     this.ingredient = tmp;
 
+                    tmp = file.ReadLine();
+                    this.heartShape = tmp;
+
+                    tmp = file.ReadLine();
+                    this.heartColor = tmp;
                 }
 
                 var stepCount = new DirectoryInfo($"{pathFood}").GetDirectories().Length;
