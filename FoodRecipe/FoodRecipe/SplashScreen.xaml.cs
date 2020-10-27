@@ -29,15 +29,16 @@ namespace FoodRecipe
         static Random _rng = new Random();
         private void DisplayImage(Tuple<string,string,string,string> images)
         {
+            String pathRoot = AppDomain.CurrentDomain.BaseDirectory;
             var bitmap = new BitmapImage(
-                        new Uri($"SplashImages/{images.Item1}",
-                        UriKind.Relative)
+                        new Uri($"{pathRoot}SplashImages/{images.Item1}",
+                        UriKind.Absolute)
                         );
             image1.Source = bitmap;
 
             bitmap = new BitmapImage(
-                        new Uri($"SplashImages/{images.Item2}",
-                        UriKind.Relative)
+                        new Uri($"{pathRoot}SplashImages/{images.Item2}",
+                        UriKind.Absolute)
                         );
             image2.Source = bitmap;
         }
