@@ -4,9 +4,121 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FoodRecipe"
+        xmlns:fa="http://schemas.fontawesome.io/icons/"
         mc:Ignorable="d"
-        Title="Window2" Height="450" Width="800">
+        Title="Window2" Height="550" Width="900">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+
+
+        <Grid Grid.Row="0">
+            <StackPanel VerticalAlignment="Top">
+
+            </StackPanel>
+
+        </Grid>
+
+        <Grid Width="800" Grid.Row="1">
+            <ListView Name="dataListView" ScrollViewer.HorizontalScrollBarVisibility="Disabled" RenderOptions.BitmapScalingMode="HighQuality" 
+                      BorderThickness="0" ItemsSource="{Binding}">
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel></WrapPanel>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <Border CornerRadius="15,15,15,15" Width="185" Height="135" BorderThickness="0">
+                                <Border.Background>
+                                    <ImageBrush ImageSource="{Binding Image}" RenderOptions.BitmapScalingMode="HighQuality" Stretch="UniformToFill"></ImageBrush>
+                                </Border.Background>
+                            </Border>
+                            <Label Content="{Binding Title}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" Margin="8"></Label>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+            </ListView>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <StackPanel Margin="650 0 30 0" Orientation="Horizontal">
+                <Button Name="Prv" Click="Prv_Click" Content="Prev" Margin="5" 
+                Width="40" Height="25"
+                VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                Background="#f7ce38" />
+
+                <Button Name="Page1" Click="Page1_Click" Content="1" Margin="5" 
+                Width="25" Height="25"
+                VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                Background="#f7ce38" />
+
+                <Button Name="Page2" Click="Page2_Click" Content="2" Margin="5" 
+                Width="25" Height="25" 
+                VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                Background="#f7ce38" />
+
+                <Button Name="Page3" Click="Page3_Click" Content="3" Margin="5" 
+                Width="25" Height="25"
+                VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                Background="#f7ce38" />
+
+                <Button Name="Nxt" Click="Nxt_Click" Content="Next" Margin="5" 
+                Width="40" Height="25"
+                VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                Background="#f7ce38" />
+
+            </StackPanel>
+        </Grid>
+
+        <Grid Height="40" VerticalAlignment="Bottom" Background="#f7ce38" Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Button Background="#f7ce38" BorderThickness="0">
+                    <fa:ImageAwesome Icon="Home" Foreground="#28292c" Width="15"></fa:ImageAwesome>
+                </Button>
+            </Grid>
+
+            <Grid Grid.Column="1">
+                <Button Background="#f7ce38" BorderThickness="0">
+                    <fa:ImageAwesome Icon="Heart" Foreground="#28292e" Width="15"></fa:ImageAwesome>
+                </Button>
+            </Grid>
+
+            <Grid Grid.Column="2">
+                <Button Background="#f7ce38" BorderThickness="0">
+                    <fa:ImageAwesome Icon="Plus" Foreground="#28292e" Width="15"></fa:ImageAwesome>
+                </Button>
+            </Grid>
+
+            <Grid Grid.Column="3">
+                <Button Background="#f7ce38" BorderThickness="0">
+                    <fa:ImageAwesome Icon="Question" Foreground="#28292e" Width="10"></fa:ImageAwesome>
+                </Button>
+            </Grid>
+
+            <Grid Grid.Column="4">
+                <Button Background="#f7ce38" BorderThickness="0">
+                    <fa:ImageAwesome Icon="Bitbucket" Foreground="#28292e" Width="12"></fa:ImageAwesome>
+                </Button>
+            </Grid>
+
+
+        </Grid>
+
     </Grid>
 </Window>

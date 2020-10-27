@@ -28,7 +28,7 @@ namespace FoodRecipe
             List<Recipe> recipes = GetAllRecipe(pathRoot);
             for (int i = 0; i < recipes.Count(); i++)
             {
-                MessageBox.Show($"{recipes[i].name}\n{recipes[i].ingredient}\n{recipes[i].thumbnailPath}");
+                //MessageBox.Show($"{recipes[i].name}\n{recipes[i].ingredient}\n{recipes[i].thumbnailPath}");
             }
         }
 
