@@ -91,3 +91,4 @@ C:\Users\khuut\Desktop\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\obj\Debug\F
 C:\Users\khuut\Desktop\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\obj\Debug\FoodRecipe.csproj.CopyComplete
 C:\Users\khuut\Desktop\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\obj\Debug\FoodRecipe.exe
 C:\Users\khuut\Desktop\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\obj\Debug\FoodRecipe.pdb
+C:\Users\khuut\Desktop\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\obj\Debug\FoodRecipe.csprojAssemblyReference.cache

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,12 +24,31 @@ namespace FoodRecipe
         public MainWindow()
         {
             InitializeComponent();
+            String pathRoot = AppDomain.CurrentDomain.BaseDirectory;
+            List<Recipe> recipes = GetAllRecipe(pathRoot);
+            for (int i = 0; i < recipes.Count(); i++)
+            {
+                MessageBox.Show($"{recipes[i].name}\n{recipes[i].ingredient}\n{recipes[i].thumbnailPath}");
+            }
+        }
+
+        public List<Recipe> GetAllRecipe(String pathRoot)
+        {
+            List <Recipe> recipes = new List<Recipe>();
+            var recipeDirInfor = new DirectoryInfo($"{pathRoot}Data").GetDirectories();
+            var recipeCount = recipeDirInfor.Length;
+            for (int i =0; i< recipeCount;i++)
+            {
+                Recipe tmp = new Recipe();
+                tmp.GetFromFiles(pathRoot, $"{recipeDirInfor[i].Name}");
+                recipes.Add(tmp);
+            }
+            return recipes;
         }
 
         private void addRecipe_Click(object sender, RoutedEventArgs e)
         {
-            var screen = new AddRecipeWindow();
-            screen.Show();
+            
         }
     }
 }

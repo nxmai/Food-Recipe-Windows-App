@@ -1,2 +1,21 @@
 Could not find file 'C:\Users\khuut\Desktop\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\bin\Debug\Data\Ba Chỉ Chiên Giòn\desription.txt'.
 Could not find file 'C:\Users\khuut\Desktop\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\bin\Debug\Data\Ba Chỉ Chiên Giòn\desription.txt'.
+Could not find file 'C:\Users\khuut\Desktop\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\bin\Debug\Data\Bánh Bông Lan\description.txt'.
+Could not find file 'C:\Users\khuut\Desktop\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\bin\Debug\Data\Bánh Cupcake\description.txt'.
+Could not find file 'C:\Users\khuut\Desktop\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\bin\Debug\Data\Chả Cá Lã Vọng\description.txt'.
+Could not find file 'C:\Users\khuut\Desktop\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\bin\Debug\Data\Cà Ri Gà\description.txt'.
+Could not find file 'C:\Users\khuut\Desktop\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\bin\Debug\Data\Cá Hú Kho Tộ\description.txt'.
+Could not find file 'C:\Users\khuut\Desktop\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\bin\Debug\Data\Cá Nướng Muối Ớt\description.txt'.
+Could not find file 'C:\Users\khuut\Desktop\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\bin\Debug\Data\Hàu Nướng Phô Mai\description.txt'.
+Could not find file 'C:\Users\khuut\Desktop\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\bin\Debug\Data\Miến Xào Cua\description.txt'.
+Could not find file 'C:\Users\khuut\Desktop\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\bin\Debug\Data\Mì Xào Hải Sản\description.txt'.
+Could not find file 'C:\Users\khuut\Desktop\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\bin\Debug\Data\Mực Chiên Xù\description.txt'.
+Could not find file 'C:\Users\khuut\Desktop\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\bin\Debug\Data\Mực Xào Sa Tế\description.txt'.
+Could not find file 'C:\Users\khuut\Desktop\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\bin\Debug\Data\Sườn Nướng Mật Ong\description.txt'.
+Could not find file 'C:\Users\khuut\Desktop\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\bin\Debug\Data\Sườn Xào Chua Ngọt\description.txt'.
+Could not find file 'C:\Users\khuut\Desktop\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\bin\Debug\Data\Thịt Kho Trứng\description.txt'.
+Could not find file 'C:\Users\khuut\Desktop\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\bin\Debug\Data\Tôm Chiên Xù\description.txt'.
+Could not find file 'C:\Users\khuut\Desktop\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\bin\Debug\Data\Tôm Rang Tiêu\description.txt'.
+Could not find file 'C:\Users\khuut\Desktop\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\bin\Debug\Data\Vịt Nướng Tiêu Xanh\description.txt'.
+Could not find file 'C:\Users\khuut\Desktop\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\bin\Debug\Data\Ếch Chiên Giòn\description.txt'.
+Could not find file 'C:\Users\khuut\Desktop\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\bin\Debug\Data\Ếch Xào Lăn\description.txt'.

@@ -13,7 +13,7 @@ using System.IO;
 
 namespace FoodRecipe
 {
-    class Recipe
+    public class Recipe
     {
         public String name { get; set; }
         public String ingredient { get; set; }
@@ -51,9 +51,12 @@ namespace FoodRecipe
                 thumbnail.Save($"{pathFood}/thumbnail.jpg");
                 using (var file = new System.IO.StreamWriter($"{pathFood}/description.txt"))
                 {
-                    file.WriteLine($"Favorite : {this.isFavorite}");
+                    /*file.WriteLine($"Favorite : {this.isFavorite}");
                     file.WriteLine($"Youtube : {this.youtubeLink}");
-                    file.WriteLine($"Ingredient : {this.ingredient}");
+                    file.WriteLine($"Ingredient : {this.ingredient}");*/
+                    file.WriteLine($"{this.isFavorite}");
+                    file.WriteLine($"{this.youtubeLink}");
+                    file.WriteLine($"{this.ingredient}");
                 }
                 for (int i=1; i<=this.step.Count(); i++)
                 {
@@ -98,26 +101,17 @@ namespace FoodRecipe
                 using (var file = new System.IO.StreamReader($"{pathFood}/description.txt"))
                 {
                     var tmp = file.ReadLine();
-                    var tokens = tmp.Split(new String[] { " : "}, StringSplitOptions.RemoveEmptyEntries);
-                    if (tokens[0] == "Favorite")
-                    {
-                        if (tokens[1] == "True")
-                            this.isFavorite = true;
-                        else
-                            this.isFavorite = false;
-                    }
+                    if (tmp == "true")
+                        this.isFavorite = true;
+                    if (tmp == "false")
+                        this.isFavorite = false;
+
                     tmp = file.ReadLine();
-                    tokens = tmp.Split(new String[] { " : " }, StringSplitOptions.RemoveEmptyEntries);
-                    if (tokens[0] == "Youtube")
-                    {
-                        this.youtubeLink = tokens[1];
-                    }
+                    this.youtubeLink = tmp;
+
                     tmp = file.ReadLine();
-                    tokens = tmp.Split(new String[] { " : " }, StringSplitOptions.RemoveEmptyEntries);
-                    if (tokens[0] == "Ingredient")
-                    {
-                        this.ingredient = tokens[1];
-                    }
+                    this.ingredient = tmp;
+
                 }
 
                 var stepCount = new DirectoryInfo($"{pathFood}").GetDirectories().Length;
