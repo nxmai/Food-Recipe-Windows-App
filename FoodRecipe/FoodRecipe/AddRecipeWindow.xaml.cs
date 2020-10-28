@@ -25,6 +25,9 @@ namespace FoodRecipe
         String pathRoot = AppDomain.CurrentDomain.BaseDirectory;
         List<List<String>> Steps = new List<List<string>>();
         int curStep = 0;
+        int curStepVisibility = 0;
+        public delegate void DeathHandler();
+        public event DeathHandler Dying;
         public AddRecipeWindow()
         {
             InitializeComponent();
@@ -86,13 +89,43 @@ namespace FoodRecipe
 
         private void AddStep_Click(object sender, RoutedEventArgs e)
         {
-            Steps[curStep][0] = StepDescription.Text;
-            StepDescription.Text = "Step Description";
-            StepDescription.Foreground = new SolidColorBrush(Colors.Gray);
-            AddImages.Visibility = Visibility.Visible;
-            Images.Children.Clear();
-            ImagesScrollView.Visibility = Visibility.Collapsed;
-            curStep++;
+            bool continueAddStep = false;
+            if (StepDescription.Text == "Step Description")
+            {
+                MessageBox.Show("Bạn phải có hướng dẫn cho bước nấu ăn này chớ");
+                StepDescription.Focus();
+            }
+            else if (curStep == Steps.Count)
+            {
+                var result = MessageBox.Show("Wait Wait! Bước nấu ăn này không có hình ảnh minh họa sao", "", MessageBoxButton.YesNo);
+                if (result == MessageBoxResult.Yes)
+                {
+                    List<String> tmp = new List<string>();
+                    tmp.Add("");
+                    Steps.Add(tmp);
+                    continueAddStep = true;
+                }
+                else
+                {
+                    /*Do Nothing*/
+                }
+            }
+            else
+            {
+                continueAddStep = true;
+            }
+            if (continueAddStep)
+            {
+                Steps[curStep][0] = StepDescription.Text;
+                StepDescription.Text = "Step Description";
+                StepDescription.Foreground = new SolidColorBrush(Colors.Gray);
+                AddImages.Visibility = Visibility.Visible;
+                Images.Children.Clear();
+                ImagesScrollView.Visibility = Visibility.Collapsed;
+                curStep++;
+                curStepVisibility = curStep;
+                StepCount.Text = $"{curStepVisibility + 1}?/{Steps.Count}";
+            }
         }
 
         private void AddImages_Click(object sender, RoutedEventArgs e)
@@ -119,23 +152,42 @@ namespace FoodRecipe
                     image1.Source = imageSteps;
                     Images.Children.Add(image1);
                 }
-                
             }
         }
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            Recipe recipe = new Recipe(FoodName.Text,FoodIngredient.Text,thumbnailPath,YoutubeLink.Text,false,Steps, "HeartOutline","White");
-            if (recipe.SaveToFiles($"{pathRoot}"))
+            if (FoodName.Text == "Food Name")
             {
-                MessageBox.Show("Đã thêm công thức");
-               
+                MessageBox.Show("Ey yo! Món ăn phải có tên nè");
+                FoodName.Focus();
+            }
+            else if (FoodIngredient.Text == "Ingredient")
+            {
+                MessageBox.Show("Hey! Món ăn thì phải có thành phần, nguyên liệu chứ nhờ");
+                FoodIngredient.Focus();
+            }
+            else if (String.IsNullOrEmpty(thumbnailPath))
+            {
+                MessageBox.Show("Hmmmm! Món ăn phải có hình mới hấp dẫn chớ");
+            }
+            else if (Steps.Count==0)
+            {
+                MessageBox.Show("Oh no! Phải có ít nhất một bước nấu ăn chớ");
             }
             else
             {
-                MessageBox.Show("Chưa thêm được công thức\nLiên hệ nhà phát triển.");
+                Recipe recipe = new Recipe(FoodName.Text, FoodIngredient.Text, thumbnailPath, YoutubeLink.Text, false, Steps, "HeartOutline", "White");
+                if (recipe.SaveToFiles($"{pathRoot}"))
+                {
+                    MessageBox.Show("Đã thêm công thức");
+
+                }
+                else
+                {
+                    MessageBox.Show("Chưa thêm được công thức\nLiên hệ nhà phát triển.");
+                }
             }
-            
         }
 
         private void AddThumbnail_Click(object sender, RoutedEventArgs e)
@@ -152,17 +204,74 @@ namespace FoodRecipe
                 Thumbnail.Children.Add(image1);
                 Thumbnail.Visibility = Visibility.Visible;
             }
-
         }
 
         private void PrevStep_Click(object sender, RoutedEventArgs e)
         {
-
+            
+            if (curStepVisibility==0)
+            {
+                MessageBox.Show("Bạn đang ở bước đầu tiên rồi á");
+            }
+            else
+            {   
+                curStepVisibility--;
+                StepDescription.Text = Steps[curStepVisibility][0];
+                StepDescription.Foreground = new SolidColorBrush(Colors.Black);
+                Images.Children.Clear();
+                AddImages.Visibility = Visibility.Collapsed;
+                ImagesScrollView.Visibility = Visibility.Visible;
+                for (int i = 1; i < Steps[curStepVisibility].Count; i++)
+                {
+                    Image image1 = new Image();
+                    image1.Height = 100;
+                    image1.Margin = new Thickness(10, 10, 10, 10);
+                    var imageSteps = new BitmapImage(new Uri(Steps[curStepVisibility][i], UriKind.Absolute));
+                    image1.Source = imageSteps;
+                    Images.Children.Add(image1);
+                }
+                StepCount.Text = $"{curStepVisibility + 1}/{Steps.Count}";
+            }
         }
 
         private void NextStep_Click(object sender, RoutedEventArgs e)
         {
-
+           
+            if (curStepVisibility == curStep)
+            {
+                MessageBox.Show("Bạn vừa đi qua bước cuối cùng rồi á. Giờ thêm bước mới đi nè");
+                StepCount.Text = $"{curStepVisibility + 1}?/{Steps.Count}";
+            }
+            else if (curStepVisibility == curStep-1)
+            {
+                curStepVisibility++;
+                StepDescription.Text = "Step Description";
+                StepDescription.Foreground = new SolidColorBrush(Colors.Gray);
+                AddImages.Visibility = Visibility.Visible;
+                Images.Children.Clear();
+                ImagesScrollView.Visibility = Visibility.Collapsed;
+                StepCount.Text = $"{curStepVisibility + 1}?/{Steps.Count}";
+                
+            }
+            else
+            {
+                curStepVisibility++;
+                StepDescription.Text = Steps[curStepVisibility][0];
+                StepDescription.Foreground = new SolidColorBrush(Colors.Black);
+                Images.Children.Clear();
+                AddImages.Visibility = Visibility.Collapsed;
+                ImagesScrollView.Visibility = Visibility.Visible;
+                for (int i = 1; i < Steps[curStepVisibility].Count; i++)
+                {
+                    Image image1 = new Image();
+                    image1.Height = 100;
+                    image1.Margin = new Thickness(10, 10, 10, 10);
+                    var imageSteps = new BitmapImage(new Uri(Steps[curStepVisibility][i], UriKind.Absolute));
+                    image1.Source = imageSteps;
+                    Images.Children.Add(image1);
+                }
+                StepCount.Text = $"{curStepVisibility+1}/{Steps.Count}";
+            }
         }
 
         private void YoutubeLink_GotFocus(object sender, RoutedEventArgs e)
@@ -203,11 +312,17 @@ namespace FoodRecipe
 
             AddImages.Visibility = Visibility.Visible;
             Images.Children.Clear();
-            Images.Children.Clear();
             ImagesScrollView.Visibility = Visibility.Collapsed;
 
             curStep = 0;
+            curStepVisibility = 0;
             Steps.Clear();
+            StepCount.Text = $"{curStepVisibility + 1}?/{Steps.Count}";
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Dying?.Invoke();
         }
     }
 }

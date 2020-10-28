@@ -71,9 +71,16 @@ namespace FoodRecipe
 
         private void addRecipe_Click(object sender, RoutedEventArgs e)
         {
-            
+            var addRecipeScreen = new AddRecipeWindow();
+            addRecipeScreen.Dying += addRecipeScreenClosing;
+            this.Hide();
+            addRecipeScreen.Show();
         }
 
+        private void addRecipeScreenClosing()
+        {
+            this.Show();
+        }
         private void Prv_Click(object sender, RoutedEventArgs e)
         {
             if (currentPageIndex <= totalPage )

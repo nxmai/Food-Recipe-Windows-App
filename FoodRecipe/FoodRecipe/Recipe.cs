@@ -30,6 +30,9 @@ namespace FoodRecipe
             ingredient = newIngredient;
             thumbnailPath = newThumbnailPath;
             isFavorite = newIsFavorite;
+            if (newYoutubeLink == "Link Youtbe")
+                youtubeLink = "";
+            else
             youtubeLink = newYoutubeLink;
             step = newStep;
             heartShape = newHeartShape;
@@ -61,6 +64,8 @@ namespace FoodRecipe
                     file.WriteLine($"{this.isFavorite}");
                     file.WriteLine($"{this.youtubeLink}");
                     file.WriteLine($"{this.ingredient}");
+                    file.WriteLine($"{this.heartShape}");
+                    file.WriteLine($"{this.heartColor}");
                 }
                 for (int i=1; i<=this.step.Count(); i++)
                 {
@@ -153,15 +158,6 @@ namespace FoodRecipe
                 result = false;
             }
             return result;
-        }
-        public void UpdateRecipe(String newName, String newIngredient, String newThumbnailPath, String newYoutubeLink, bool newIsFavorite, List<List<String>> newStep)
-        {
-            name = newName;
-            ingredient = newIngredient;
-            thumbnailPath = newThumbnailPath;
-            isFavorite = newIsFavorite;
-            youtubeLink = newYoutubeLink;
-            step = newStep;
         }
     }
 }
