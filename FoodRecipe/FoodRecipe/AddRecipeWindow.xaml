@@ -3,9 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:FoodRecipe"
+        xmlns:local="clr-namespace:FoodRecipe" xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="AddRecipeWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Closing="Window_Closing">
+        Title="AddRecipeWindow" Height="570" Width="900" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Closing="Window_Closing">
     <Window.Background>
         <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
             <GradientStop Color="#FFFFB800" Offset="1"/>
@@ -18,8 +18,8 @@
             <ColumnDefinition Width="2.5*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="1.5*"></RowDefinition>
-            <RowDefinition Height="1.5*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
             <RowDefinition Height="0.5*"></RowDefinition>
         </Grid.RowDefinitions>
         <StackPanel Grid.Column="0" Grid.Row="0">
@@ -27,29 +27,52 @@
                 <TextBlock FontSize="25" FontWeight="Bold" Text="Add Recipe" Margin="10 5 10 10" Foreground="#FF3D3D3D"/>
             </StackPanel>
             <StackPanel>
-                <Border CornerRadius="10" BorderThickness="0" Margin="10 5 10 5" Padding="2" Background="White">
-                    <TextBox KeyUp="" Name="FoodName" FontSize="20" Background="Transparent" BorderBrush="Transparent" Text="Food Name" Foreground="Gray" Padding="5 0 0 0" GotFocus="FoodName_GotFocus" LostFocus="FoodName_LostFocus"></TextBox>
+                <Border CornerRadius="10" BorderThickness="0" Margin="10 0 10 5" Padding="2" Background="White">
+                    <TextBox Name="FoodName" FontSize="20" Background="Transparent" BorderBrush="Transparent" Text="Food Name" Foreground="Gray" Padding="5 0 0 0" GotFocus="FoodName_GotFocus" LostFocus="FoodName_LostFocus"></TextBox>
                 </Border>
             </StackPanel>
             <StackPanel>
-                <Border CornerRadius="10" Background="white" BorderThickness="0" Margin="10 5 10 5" Padding="2">
-                    <TextBox Name="FoodIngredient" FontSize="20" Background="Transparent" BorderBrush="Transparent" Text="Ingredient" Foreground="Gray" Padding="5 0 0 0" GotFocus="FoodIngredient_GotFocus" LostFocus="FoodIngredient_LostFocus"></TextBox>
+                
+                <Border CornerRadius="10" Background="white" BorderThickness="0" Margin="10 0 10 5" Padding="2">
+                    <TextBox TextWrapping="Wrap" AcceptsReturn="True" ScrollViewer.VerticalScrollBarVisibility="Visible" Name="FoodIngredient" FontSize="20" Background="Transparent" BorderBrush="Transparent" Text="Ingredient" Foreground="Gray" Padding="5 0 0 0" GotFocus="FoodIngredient_GotFocus" LostFocus="FoodIngredient_LostFocus" VerticalContentAlignment="Center" Height="100" Margin="0,0,0.2,0"></TextBox>
                 </Border>
             </StackPanel>
             <StackPanel>
-                <Border CornerRadius="10" Background="white" BorderThickness="0" Margin="10 5 10 5" Padding="2">
-                    <TextBox Name="YoutubeLink" FontSize="20" Background="Transparent" BorderBrush="Transparent" Text="Link Youtube" Foreground="Gray" Padding="5 0 0 0" GotFocus="YoutubeLink_GotFocus" LostFocus="YoutubeLink_LostFocus"></TextBox>
+                <Border CornerRadius="10" Background="white" BorderThickness="0" Margin="10,0,10.2,5" Padding="2">
+                    <TextBox x:Name="YoutubeLink" FontSize="20" Background="Transparent" BorderBrush="Transparent" Text="Link Youtube" Foreground="Gray" Padding="5 0 0 0" GotFocus="YoutubeLink_GotFocus" LostFocus="YoutubeLink_LostFocus"/>
                 </Border>
             </StackPanel>
+
+            <!-- 
+            <StackPanel Orientation="Horizontal">
+                <ScrollViewer HorizontalScrollBarVisibility="auto" VerticalScrollBarVisibility="auto" Margin="10,0,5,0" Height="40" Width="240" >
+                    <ScrollViewer.Resources>
+                        <sys:Double x:Key="{x:Static SystemParameters.HorizontalScrollBarHeightKey}">10</sys:Double>
+                    </ScrollViewer.Resources>
+                    <StackPanel Height="20" Orientation="Horizontal" VerticalAlignment="Center">
+                        <StackPanel Name="TagBoxes" Orientation="Horizontal" VerticalAlignment="Center">
+
+                        </StackPanel>
+
+                    </StackPanel>
+                </ScrollViewer>
+
+                <TextBox Name="TagInput" Background="white" BorderBrush="Transparent" TextAlignment="Center" Text="Add Tag..." Foreground="Gray" GotFocus="TagInput_GotFocus" LostFocus="TagInput_LostFocus" Width="60" Height="20" />
+                <Button Name="AddTag" Background="Transparent" BorderBrush="Transparent" Height="20" Click="AddTag_Click">
+                    <Image Source="Icon/add.png" Width="15" Height="15"></Image>
+                </Button>
+
+            </StackPanel>
+            -->
         </StackPanel>
         <StackPanel Grid.Column="0" Grid.Row="1">
-            <Border CornerRadius="10" Background="White" BorderThickness="0" Margin="10" Padding="2" Height="160" >
+            <Border CornerRadius="10" Background="White" BorderThickness="0" Margin="10,10,10.2,10" Padding="2" Height="221" >
                 <StackPanel  VerticalAlignment="Center" HorizontalAlignment="Center">
                     <StackPanel Name="Thumbnail" Visibility="Collapsed"></StackPanel>
-                    <Button Name="AddThumbnail" Background="Transparent" BorderBrush="Transparent" Click="AddThumbnail_Click" Height="145" Width="270">
+                    <Button Name="AddThumbnail" Background="Transparent" BorderBrush="Transparent" Click="AddThumbnail_Click" Height="218" Width="312">
                         <StackPanel VerticalAlignment="Center">
                             <TextBlock FontSize="20" Foreground="Gray" HorizontalAlignment="Center" Text="Add Thumbnail" Margin="2"></TextBlock>
-                            <Image Source="Icon/add.png" Width="79" Height="74" Margin="2"></Image>
+                            <Image Source="Icon/add.png" Width="79" Height="74" Margin="2"/>
                         </StackPanel>
                     </Button>
                 </StackPanel>
@@ -74,14 +97,14 @@
             </Button>
         </StackPanel>
         <StackPanel  Grid.Column="1" Grid.Row="0">
-            <Border CornerRadius="10" Background="White" BorderThickness="0" Margin="10" Padding="2" Height="162">
+            <Border CornerRadius="10" Background="White" BorderThickness="0" Margin="10,10,10.4,10" Padding="2" Height="220">
                 <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-                    <TextBox Name="StepDescription" FontSize="20" Background="Transparent" BorderBrush="Transparent" Text="Step Description" Foreground="Gray" Padding="5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" GotFocus="StepDescription_GotFocus" LostFocus="StepDescription_LostFocus" Height="156" Width="469" />
+                    <TextBox Name="StepDescription" FontSize="20" Background="Transparent" BorderBrush="Transparent" Text="Step Description" Foreground="Gray" Padding="5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" GotFocus="StepDescription_GotFocus" LostFocus="StepDescription_LostFocus" Height="219" Width="535" />
                 </StackPanel>
             </Border>
         </StackPanel>
         <StackPanel  Grid.Column="1" Grid.Row="1">
-            <Border CornerRadius="10" Background="White" BorderThickness="0" Margin="10" Padding="2" Height="162" >
+            <Border CornerRadius="10" Background="White" BorderThickness="0" Margin="10,10,10.4,10" Padding="2" Height="221" >
                 <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
 
                     <ScrollViewer Name="ImagesScrollView" Visibility="Collapsed"  Height = "150" Width = "450" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Visible" >
@@ -90,7 +113,7 @@
                         </StackPanel>
                     </ScrollViewer>
 
-                    <Button Name="AddImages" Background="Transparent" BorderBrush="Transparent" Click="AddImages_Click" Height="157" Width="471" Visibility="Visible">
+                    <Button Name="AddImages" Background="Transparent" BorderBrush="Transparent" Click="AddImages_Click" Height="221" Width="534" Visibility="Visible">
                         <StackPanel VerticalAlignment="Center">
                             <TextBlock FontSize="20" Foreground="Gray" HorizontalAlignment="Center" Text="Add Images" Margin="2"/>
                             <Image Source="Icon/add.png" Width="79" Height="74" Margin="2"/>

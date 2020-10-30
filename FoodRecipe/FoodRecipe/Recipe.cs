@@ -10,6 +10,7 @@ using System.Drawing;
 using System.Diagnostics;
 using System.Windows.Media.Imaging;
 using System.IO;
+using System.Security.Principal;
 
 namespace FoodRecipe
 {
@@ -24,6 +25,7 @@ namespace FoodRecipe
         public String heartShape { get; set; }
         public String heartColor { get; set; }
         //
+
         public Recipe(String newName, String newIngredient, String newThumbnailPath, String newYoutubeLink, bool newIsFavorite, List<List<String>> newStep, String newHeartShape, String newHeartColor)
         {
             name = newName;
@@ -38,6 +40,7 @@ namespace FoodRecipe
             heartShape = newHeartShape;
             heartColor = newHeartColor;
         }
+
         public Recipe() 
         {
             name = "";
@@ -47,52 +50,70 @@ namespace FoodRecipe
             step = new List<List<string>>();
            
         }
-        public bool SaveToFiles(String pathRoot)
+
+        public int SaveToFiles(String pathRoot)
         {
-            bool result = true;
+            int result = 0;
             try
             {
                 String pathFood = $"{pathRoot}Data/{name}";
-                System.IO.Directory.CreateDirectory(pathFood);
-                var thumbnail = new Bitmap($"{this.thumbnailPath}");
-                thumbnail.Save($"{pathFood}/thumbnail.jpg");
-                using (var file = new System.IO.StreamWriter($"{pathFood}/description.txt"))
+                if (new DirectoryInfo($"{pathFood}").Exists)
                 {
-                    /*file.WriteLine($"Favorite : {this.isFavorite}");
-                    file.WriteLine($"Youtube : {this.youtubeLink}");
-                    file.WriteLine($"Ingredient : {this.ingredient}");*/
-                    file.WriteLine($"{this.isFavorite}");
-                    file.WriteLine($"{this.youtubeLink}");
-                    file.WriteLine($"{this.ingredient}");
-                    file.WriteLine($"{this.heartShape}");
-                    file.WriteLine($"{this.heartColor}");
+                    result = 1;
                 }
-                for (int i=1; i<=this.step.Count(); i++)
+                else
                 {
-                    System.IO.Directory.CreateDirectory($"{pathFood}/{i}");
-                    using (var file = new System.IO.StreamWriter($"{pathFood}/{i}/text.txt"))
+                    System.IO.Directory.CreateDirectory(pathFood);
+                    var thumbnail = new Bitmap($"{this.thumbnailPath}");
+                    thumbnail.Save($"{pathFood}/thumbnail.jpg");
+                    using (var file = new System.IO.StreamWriter($"{pathFood}/description.txt"))
                     {
-                        file.WriteLine(this.step[i-1][0]);
+                        /*file.WriteLine($"Favorite : {this.isFavorite}");
+                        file.WriteLine($"Youtube : {this.youtubeLink}");
+                        file.WriteLine($"Ingredient : {this.ingredient}");*/
+                        file.WriteLine($"{this.isFavorite}");
+                        file.WriteLine($"{this.youtubeLink}");
+                        this.ingredient = this.ingredient.Replace('\n', ',');
+                        file.WriteLine($"{this.ingredient}");
+                        file.WriteLine($"{this.heartShape}");
+                        file.WriteLine($"{this.heartColor}");
                     }
-                    
-                    for (int j = 1; j < this.step[i-1].Count;j++)
+                    for (int i = 1; i <= this.step.Count(); i++)
                     {
-                        var imageStep = new Bitmap($"{this.step[i-1][j]}");
-                        imageStep.Save($"{pathFood}/{i}/{j}.jpg");
+                        System.IO.Directory.CreateDirectory($"{pathFood}/{i}");
+                        using (var file = new System.IO.StreamWriter($"{pathFood}/{i}/amount.txt"))
+                        {
+                            file.WriteLine((step[i - 1].Count() - 1).ToString());
+                        }
+                        using (var file = new System.IO.StreamWriter($"{pathFood}/{i}/text.txt"))
+                        {
+                            file.WriteLine(this.step[i - 1][0]);
+                        }
+
+                        for (int j = 1; j < this.step[i - 1].Count; j++)
+                        {
+                            var imageStep = new Bitmap($"{this.step[i - 1][j]}");
+                            imageStep.Save($"{pathFood}/{i}/{j}.jpg");
+                        }
+                    }
+                    using (var file = new System.IO.StreamWriter($"{pathFood}/amount.txt"))
+                    {
+                        file.WriteLine(step.Count().ToString());
                     }
                 }
             }
             catch (Exception e)
             {
-                using (var file = new System.IO.StreamWriter($"{pathRoot}/log.txt",true))
+                using (var file = new System.IO.StreamWriter($"{pathRoot}/log.txt", true))
                 {
                     file.WriteLine(e.Message);
                     Debug.WriteLine(e.Message);
                 }
-                result = false;
+                result = -1;
             }
             return result;
         }
+
         public bool GetFromFiles(String pathRoot, String foodName)
         {
             bool result = false;
@@ -119,6 +140,7 @@ namespace FoodRecipe
                     this.youtubeLink = tmp;
 
                     tmp = file.ReadLine();
+                    tmp = tmp.Replace(',', '\n');
                     this.ingredient = tmp;
 
                     tmp = file.ReadLine();
@@ -159,5 +181,82 @@ namespace FoodRecipe
             }
             return result;
         }
+
+        /*
+      public bool GetFromFiles1(String pathRoot, String foodName)
+        {
+            bool result = false;
+            try
+            {
+                String pathFood = $"{pathRoot}Data/{foodName}";
+                /* var thumbnail = new BitmapImage(
+                      new Uri(
+                             $"{thumbnailPath}",
+                             UriKind.Absolute)
+                     );
+
+                 using (var file = new System.IO.StreamReader($"{pathFood}/ingredient.txt"))
+                 {
+                     var tmp = file.ReadLine();
+                     this.youtubeLink = tmp;
+
+                     tmp = file.ReadToEnd();
+                     tmp = tmp.Replace(',', '\n');
+                     this.ingredient = tmp;
+
+                 }
+
+                 using (var file = new System.IO.StreamWriter($"{pathFood}/description.txt"))
+                 {
+
+                     file.WriteLine("false");
+                     file.WriteLine($"{this.youtubeLink}");
+                     this.ingredient = this.ingredient.Replace('\n', ' ');
+                     this.ingredient = this.ingredient.Replace('\r', ',');
+                     file.WriteLine($"{this.ingredient}");
+                     file.WriteLine("HeartOutline");
+                     file.WriteLine("White");
+                 }
+                
+               
+                var stepCount = new DirectoryInfo($"{pathFood}").GetDirectories().Length;
+                for (int i = 1; i <= stepCount; i++)
+                {
+                    List<String> tmpStep = new List<string>();
+                    using (var file1 = new System.IO.StreamReader($"{pathFood}/{i}/text.txt"))
+                    {
+                        tmpStep.Add(file1.ReadToEnd());
+                    }
+
+                    var ImagesListObj = new DirectoryInfo($"{pathFood}/{i}").GetFiles("*.jpg");
+                    for (int j = 0; j < ImagesListObj.Length; j++)
+                    {
+                        tmpStep.Add(ImagesListObj[j].DirectoryName);
+                    }
+                    this.step.Add(tmpStep);
+                }
+                using (var file = new System.IO.StreamWriter($"{pathFood}/amount.txt"))
+                {
+                    file.WriteLine(step.Count().ToString());
+                }
+                for (int i = 1; i <= this.step.Count(); i++)
+                {
+                    using (var file = new System.IO.StreamWriter($"{pathFood}/{i}/amount.txt"))
+                    {
+                        file.WriteLine((step[i - 1].Count() - 1).ToString());
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                using (var file = new System.IO.StreamWriter($"{pathRoot}/log.txt", true))
+                {
+                    file.WriteLine(e.Message);
+                    Debug.WriteLine(e.Message);
+                }
+                result = false;
+            }
+            return result;
+        }*/
     }
 }

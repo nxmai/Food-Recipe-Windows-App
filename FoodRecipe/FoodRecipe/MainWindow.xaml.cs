@@ -24,7 +24,7 @@ namespace FoodRecipe
         public MainWindow()
         {
             InitializeComponent();
-           
+
 
         }
 
@@ -38,13 +38,12 @@ namespace FoodRecipe
             List <Recipe> recipes = new List<Recipe>();
             var recipeDirInfor = new DirectoryInfo($"{pathRoot}Data").GetDirectories();
             var recipeCount = recipeDirInfor.Length;
-            for (int i =0; i< recipeCount;i++)
+
+            for (int i = 0; i < recipeCount; i++)
             {
                 Recipe tmp = new Recipe();
                 tmp.GetFromFiles(pathRoot, $"{recipeDirInfor[i].Name}");
                 recipes.Add(tmp);
-
-                
             }
             return recipes;
         }
@@ -53,8 +52,7 @@ namespace FoodRecipe
         {
             String pathRoot = AppDomain.CurrentDomain.BaseDirectory;
             recipes = GetAllRecipe(pathRoot);
-
-
+          
             int itemCount = recipes.Count();
 
             totalPage = itemCount / itemPerPage;

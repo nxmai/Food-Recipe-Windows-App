@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -20,10 +21,11 @@ namespace FoodRecipe
     /// </summary>
     public partial class Window1 : Window
     {
+        bool showSplash = true;
         public Window1()
         {
             InitializeComponent();
-            DisplaySplashScreen();
+            
         }
 
         static Random _rng = new Random();
@@ -68,6 +70,33 @@ namespace FoodRecipe
             this.Close();
             screen.ShowDialog();
          
+        }
+
+        private void CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            var config = ConfigurationManager.OpenExeConfiguration(
+                ConfigurationUserLevel.None);
+            config.AppSettings.Settings["ShowSplashScreen"].Value = "false";
+            config.Save(ConfigurationSaveMode.Minimal);
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            var value = ConfigurationManager.AppSettings["ShowSplashScreen"];
+            showSplash = bool.Parse(value);
+            Debug.WriteLine(value);
+            if (showSplash == false)
+            {
+                DisplaySplashScreen();
+                var screen = new MainWindow(); //window2 == homescreen
+                this.Close();
+                screen.ShowDialog();
+            }
+            else
+            {
+                DisplaySplashScreen();
+            }
+            
         }
     }
 }

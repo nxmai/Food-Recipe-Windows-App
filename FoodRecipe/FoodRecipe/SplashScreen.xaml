@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FoodRecipe"
         mc:Ignorable="d"
-        Title="Splash Screen" Height="550" Width="550">
+        Title="Splash Screen" Height="550" Width="550" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Loaded="Window_Loaded" >
     <Canvas>
         <Image Height="215" Canvas.Left="40" Canvas.Top="24" RenderOptions.BitmapScalingMode="HighQuality" 
                Width="215" Name="image1"/>
@@ -24,7 +24,7 @@
                 Style="{StaticResource RoundButtonTemplate}" Background="#f7ce38"
                 Foreground="#28292e" FontWeight="Bold" FontSize="13"/>
         <CheckBox Content="Không hiện hộp thoại này mỗi khi khởi động" Canvas.Left="143" 
-                  Canvas.Top="481" HorizontalAlignment="Center"
+                  Canvas.Top="481" HorizontalAlignment="Center" Checked="CheckBox_Checked"
                   />
 
 

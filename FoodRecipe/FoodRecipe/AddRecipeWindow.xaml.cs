@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Xml.Linq;
 
 namespace FoodRecipe
 {
@@ -24,6 +25,7 @@ namespace FoodRecipe
         String thumbnailPath = "";
         String pathRoot = AppDomain.CurrentDomain.BaseDirectory;
         List<List<String>> Steps = new List<List<string>>();
+        List<String> tags = new List<string>();
         int curStep = 0;
         int curStepVisibility = 0;
         public delegate void DeathHandler();
@@ -90,41 +92,54 @@ namespace FoodRecipe
         private void AddStep_Click(object sender, RoutedEventArgs e)
         {
             bool continueAddStep = false;
-            if (StepDescription.Text == "Step Description")
+            if (curStep != curStepVisibility)
             {
-                MessageBox.Show("Bạn phải có hướng dẫn cho bước nấu ăn này chớ");
-                StepDescription.Focus();
-            }
-            else if (curStep == Steps.Count)
-            {
-                var result = MessageBox.Show("Wait Wait! Bước nấu ăn này không có hình ảnh minh họa sao", "", MessageBoxButton.YesNo);
-                if (result == MessageBoxResult.Yes)
-                {
-                    List<String> tmp = new List<string>();
-                    tmp.Add("");
-                    Steps.Add(tmp);
-                    continueAddStep = true;
-                }
-                else
-                {
-                    /*Do Nothing*/
-                }
-            }
-            else
-            {
-                continueAddStep = true;
-            }
-            if (continueAddStep)
-            {
-                Steps[curStep][0] = StepDescription.Text;
+                curStepVisibility = curStep;
                 StepDescription.Text = "Step Description";
                 StepDescription.Foreground = new SolidColorBrush(Colors.Gray);
                 AddImages.Visibility = Visibility.Visible;
                 Images.Children.Clear();
                 ImagesScrollView.Visibility = Visibility.Collapsed;
-                curStep++;
-                curStepVisibility = curStep;
                 StepCount.Text = $"{curStepVisibility + 1}?/{Steps.Count}";
+            }
+            else
+            {
+                if (StepDescription.Text == "Step Description")
+                {
+                    MessageBox.Show("Bạn phải có hướng dẫn cho bước nấu ăn này chớ");
+                    StepDescription.Focus();
+                }
+                else if (curStep == Steps.Count)
+                {
+                    var result = MessageBox.Show("Wait Wait! Bước nấu ăn này không có hình ảnh minh họa sao", "", MessageBoxButton.YesNo);
+                    if (result == MessageBoxResult.Yes)
+                    {
+                        List<String> tmp = new List<string>();
+                        tmp.Add("");
+                        Steps.Add(tmp);
+                        continueAddStep = true;
+                    }
+                    else
+                    {
+                        /*Do Nothing*/
+                    }
+                }
+                else
+                {
+                    continueAddStep = true;
+                }
+                if (continueAddStep)
+                {
+                    Steps[curStep][0] = StepDescription.Text;
+                    StepDescription.Text = "Step Description";
+                    StepDescription.Foreground = new SolidColorBrush(Colors.Gray);
+                    AddImages.Visibility = Visibility.Visible;
+                    Images.Children.Clear();
+                    ImagesScrollView.Visibility = Visibility.Collapsed;
+                    curStep++;
+                    curStepVisibility = curStep;
+                    StepCount.Text = $"{curStepVisibility + 1}?/{Steps.Count}";
+                }
             }
         }
 
@@ -178,10 +193,15 @@ namespace FoodRecipe
             else
             {
                 Recipe recipe = new Recipe(FoodName.Text, FoodIngredient.Text, thumbnailPath, YoutubeLink.Text, false, Steps, "HeartOutline", "White");
-                if (recipe.SaveToFiles($"{pathRoot}"))
+                int err = recipe.SaveToFiles($"{pathRoot}");
+                if (err==0)
                 {
                     MessageBox.Show("Đã thêm công thức");
 
+                }
+                else if (err==1)
+                {
+                    MessageBox.Show("Tên công thức món ăn này đã tồn tại. Hãy đổi thành tên khác");
                 }
                 else
                 {
@@ -218,6 +238,7 @@ namespace FoodRecipe
                 curStepVisibility--;
                 StepDescription.Text = Steps[curStepVisibility][0];
                 StepDescription.Foreground = new SolidColorBrush(Colors.Black);
+                StepDescription.IsEnabled = false;
                 Images.Children.Clear();
                 AddImages.Visibility = Visibility.Collapsed;
                 ImagesScrollView.Visibility = Visibility.Visible;
@@ -258,6 +279,7 @@ namespace FoodRecipe
                 curStepVisibility++;
                 StepDescription.Text = Steps[curStepVisibility][0];
                 StepDescription.Foreground = new SolidColorBrush(Colors.Black);
+                StepDescription.IsEnabled = false;
                 Images.Children.Clear();
                 AddImages.Visibility = Visibility.Collapsed;
                 ImagesScrollView.Visibility = Visibility.Visible;
@@ -324,5 +346,44 @@ namespace FoodRecipe
         {
             Dying?.Invoke();
         }
+
+        /*
+        private void AddTag_Click(object sender, RoutedEventArgs e)
+        {
+            if (TagInput.Text == "Add Tag...")
+            {
+                MessageBox.Show("");
+            }
+            else
+            {
+                TextBlock textBlock = new TextBlock();
+                textBlock.Background = new SolidColorBrush(Colors.White);
+                textBlock.Text = TagInput.Text;
+                textBlock.Margin = new Thickness(1,0,1,0);
+                textBlock.TextAlignment = TextAlignment.Center;
+                TagBoxes.Children.Add(textBlock);
+                TagInput.Text = "Add Tag...";
+                
+            }
+        }
+
+        private void TagInput_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (TagInput.Text == "Add Tag...")
+            {
+                TagInput.Text = "";
+                TagInput.Foreground = new SolidColorBrush(Colors.Black);
+            }
+        }
+
+        private void TagInput_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (String.IsNullOrWhiteSpace(TagInput.Text))
+            {
+                TagInput.Text = "Add Tag...";
+                TagInput.Foreground = new SolidColorBrush(Colors.Gray);
+            }
+        }
+        */
     }
 }
