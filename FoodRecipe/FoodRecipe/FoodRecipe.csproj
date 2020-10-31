@@ -63,6 +63,9 @@
     <Compile Include="AddRecipeWindow.xaml.cs">
       <DependentUpon>AddRecipeWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="FavoriteScreen.xaml.cs">
+      <DependentUpon>FavoriteScreen.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Recipe.cs" />
     <Compile Include="SplashScreen.xaml.cs">
       <DependentUpon>SplashScreen.xaml</DependentUpon>
@@ -71,6 +74,10 @@
       <DependentUpon>HomeScreen.xaml</DependentUpon>
     </Compile>
     <Page Include="AddRecipeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FavoriteScreen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

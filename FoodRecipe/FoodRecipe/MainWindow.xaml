@@ -102,7 +102,7 @@
             </Grid>
 
             <Grid Grid.Column="1">
-                <Button Background="#f7ce38" BorderThickness="0">
+                <Button Background="#f7ce38" BorderThickness="0" Click="toFavoriteScreen_Click">
                     <fa:ImageAwesome Icon="Heart" Foreground="#28292e" Width="15"></fa:ImageAwesome>
                 </Button>
             </Grid>

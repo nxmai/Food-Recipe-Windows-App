@@ -121,6 +121,31 @@ namespace FoodRecipe
 
         private void Favorite_Click(object sender, RoutedEventArgs e)
         {
+            var item = (sender as FrameworkElement).DataContext;
+            int index = dataListView.Items.IndexOf(item) + ((currentPageIndex - 1) * itemPerPage);
+
+            if (recipes[index].heartShape == "Heart" && recipes[index].heartColor == "Red")
+            {
+                recipes[index].heartShape = "HeartOutline";
+                recipes[index].heartColor = "White";
+            }
+            else
+            {
+                recipes[index].heartShape = "Heart";
+                recipes[index].heartColor = "Red";
+            }
+
+            dataListView.ItemsSource = recipes;
+        }
+
+        private void toFavoriteScreen_Click(object sender, RoutedEventArgs e)
+        {
+            var screen = new FavoriteScreen();
+            this.Close();
+            screen.ShowDialog();
+
+
+            //_food.NavigationService.Navigate(new FavoriteScreen());
 
         }
     }
