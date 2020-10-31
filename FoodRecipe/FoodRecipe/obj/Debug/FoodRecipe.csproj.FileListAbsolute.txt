@@ -1,0 +1,66 @@
+D:\Môn  học\Năm 3\Học Kỳ 1\Lập Trình Windows\Git_Code_Prọect1\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\bin\Debug\Icon\next.png
+D:\Môn  học\Năm 3\Học Kỳ 1\Lập Trình Windows\Git_Code_Prọect1\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\bin\Debug\Icon\add.png
+D:\Môn  học\Năm 3\Học Kỳ 1\Lập Trình Windows\Git_Code_Prọect1\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\bin\Debug\Icon\reset.png
+D:\Môn  học\Năm 3\Học Kỳ 1\Lập Trình Windows\Git_Code_Prọect1\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\bin\Debug\Icon\save.png
+D:\Môn  học\Năm 3\Học Kỳ 1\Lập Trình Windows\Git_Code_Prọect1\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\bin\Debug\Icon\up.png
+D:\Môn  học\Năm 3\Học Kỳ 1\Lập Trình Windows\Git_Code_Prọect1\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\bin\Debug\Icon\down.png
+D:\Môn  học\Năm 3\Học Kỳ 1\Lập Trình Windows\Git_Code_Prọect1\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\bin\Debug\SplashImages\chocolate.jpg
+D:\Môn  học\Năm 3\Học Kỳ 1\Lập Trình Windows\Git_Code_Prọect1\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\bin\Debug\SplashImages\egg.jpg
+D:\Môn  học\Năm 3\Học Kỳ 1\Lập Trình Windows\Git_Code_Prọect1\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\bin\Debug\SplashImages\meat.jpg
+D:\Môn  học\Năm 3\Học Kỳ 1\Lập Trình Windows\Git_Code_Prọect1\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\bin\Debug\SplashImages\milk.jpg
+D:\Môn  học\Năm 3\Học Kỳ 1\Lập Trình Windows\Git_Code_Prọect1\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\bin\Debug\SplashImages\persimmon.jpg
+D:\Môn  học\Năm 3\Học Kỳ 1\Lập Trình Windows\Git_Code_Prọect1\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\bin\Debug\SplashImages\potato.jpg
+D:\Môn  học\Năm 3\Học Kỳ 1\Lập Trình Windows\Git_Code_Prọect1\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\bin\Debug\SplashImages\shrimp.jpg
+D:\Môn  học\Năm 3\Học Kỳ 1\Lập Trình Windows\Git_Code_Prọect1\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\bin\Debug\SplashImages\soy-bean.jpg
+D:\Môn  học\Năm 3\Học Kỳ 1\Lập Trình Windows\Git_Code_Prọect1\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\bin\Debug\SplashImages\soy-milk.jpg
+D:\Môn  học\Năm 3\Học Kỳ 1\Lập Trình Windows\Git_Code_Prọect1\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\bin\Debug\SplashImages\spinach.jpg
+D:\Môn  học\Năm 3\Học Kỳ 1\Lập Trình Windows\Git_Code_Prọect1\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\bin\Debug\SplashImages\vitaminc.jpg
+D:\Môn  học\Năm 3\Học Kỳ 1\Lập Trình Windows\Git_Code_Prọect1\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\bin\Debug\SplashImages\watermelon.jpg
+D:\Môn  học\Năm 3\Học Kỳ 1\Lập Trình Windows\Git_Code_Prọect1\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\bin\Debug\Data\Ba Chỉ Chiên Giòn\1\1.jpg
+D:\Môn  học\Năm 3\Học Kỳ 1\Lập Trình Windows\Git_Code_Prọect1\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\bin\Debug\Data\Ba Chỉ Chiên Giòn\1\2.jpg
+D:\Môn  học\Năm 3\Học Kỳ 1\Lập Trình Windows\Git_Code_Prọect1\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\bin\Debug\Data\Ba Chỉ Chiên Giòn\1\amount.txt
+D:\Môn  học\Năm 3\Học Kỳ 1\Lập Trình Windows\Git_Code_Prọect1\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\bin\Debug\Data\Ba Chỉ Chiên Giòn\1\text.txt
+D:\Môn  học\Năm 3\Học Kỳ 1\Lập Trình Windows\Git_Code_Prọect1\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\bin\Debug\Data\Ba Chỉ Chiên Giòn\2\1.jpg
+D:\Môn  học\Năm 3\Học Kỳ 1\Lập Trình Windows\Git_Code_Prọect1\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\bin\Debug\Data\Ba Chỉ Chiên Giòn\2\2.jpg
+D:\Môn  học\Năm 3\Học Kỳ 1\Lập Trình Windows\Git_Code_Prọect1\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\bin\Debug\Data\Ba Chỉ Chiên Giòn\2\3.jpg
+D:\Môn  học\Năm 3\Học Kỳ 1\Lập Trình Windows\Git_Code_Prọect1\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\bin\Debug\Data\Ba Chỉ Chiên Giòn\2\4.jpg
+D:\Môn  học\Năm 3\Học Kỳ 1\Lập Trình Windows\Git_Code_Prọect1\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\bin\Debug\Data\Ba Chỉ Chiên Giòn\2\amount.txt
+D:\Môn  học\Năm 3\Học Kỳ 1\Lập Trình Windows\Git_Code_Prọect1\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\bin\Debug\Data\Ba Chỉ Chiên Giòn\2\text.txt
+D:\Môn  học\Năm 3\Học Kỳ 1\Lập Trình Windows\Git_Code_Prọect1\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\bin\Debug\Data\Ba Chỉ Chiên Giòn\3\1.jpg
+D:\Môn  học\Năm 3\Học Kỳ 1\Lập Trình Windows\Git_Code_Prọect1\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\bin\Debug\Data\Ba Chỉ Chiên Giòn\3\2.jpg
+D:\Môn  học\Năm 3\Học Kỳ 1\Lập Trình Windows\Git_Code_Prọect1\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\bin\Debug\Data\Ba Chỉ Chiên Giòn\3\amount.txt
+D:\Môn  học\Năm 3\Học Kỳ 1\Lập Trình Windows\Git_Code_Prọect1\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\bin\Debug\Data\Ba Chỉ Chiên Giòn\3\text.txt
+D:\Môn  học\Năm 3\Học Kỳ 1\Lập Trình Windows\Git_Code_Prọect1\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\bin\Debug\Data\Ba Chỉ Chiên Giòn\4\1.jpg
+D:\Môn  học\Năm 3\Học Kỳ 1\Lập Trình Windows\Git_Code_Prọect1\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\bin\Debug\Data\Ba Chỉ Chiên Giòn\4\2.jpg
+D:\Môn  học\Năm 3\Học Kỳ 1\Lập Trình Windows\Git_Code_Prọect1\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\bin\Debug\Data\Ba Chỉ Chiên Giòn\4\amount.txt
+D:\Môn  học\Năm 3\Học Kỳ 1\Lập Trình Windows\Git_Code_Prọect1\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\bin\Debug\Data\Ba Chỉ Chiên Giòn\4\text.txt
+D:\Môn  học\Năm 3\Học Kỳ 1\Lập Trình Windows\Git_Code_Prọect1\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\bin\Debug\Data\Ba Chỉ Chiên Giòn\amount.txt
+D:\Môn  học\Năm 3\Học Kỳ 1\Lập Trình Windows\Git_Code_Prọect1\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\bin\Debug\Data\Ba Chỉ Chiên Giòn\description.txt
+D:\Môn  học\Năm 3\Học Kỳ 1\Lập Trình Windows\Git_Code_Prọect1\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\bin\Debug\Data\Ba Chỉ Chiên Giòn\ingredient.txt
+D:\Môn  học\Năm 3\Học Kỳ 1\Lập Trình Windows\Git_Code_Prọect1\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\bin\Debug\Data\Ba Chỉ Chiên Giòn\thumbnail.jpg
+D:\Môn  học\Năm 3\Học Kỳ 1\Lập Trình Windows\Git_Code_Prọect1\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\bin\Debug\FoodRecipe.exe.config
+D:\Môn  học\Năm 3\Học Kỳ 1\Lập Trình Windows\Git_Code_Prọect1\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\bin\Debug\FoodRecipe.exe
+D:\Môn  học\Năm 3\Học Kỳ 1\Lập Trình Windows\Git_Code_Prọect1\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\bin\Debug\FoodRecipe.pdb
+D:\Môn  học\Năm 3\Học Kỳ 1\Lập Trình Windows\Git_Code_Prọect1\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\bin\Debug\FontAwesome.WPF.dll
+D:\Môn  học\Năm 3\Học Kỳ 1\Lập Trình Windows\Git_Code_Prọect1\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\bin\Debug\FontAwesome.WPF.xml
+D:\Môn  học\Năm 3\Học Kỳ 1\Lập Trình Windows\Git_Code_Prọect1\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\obj\Debug\FoodRecipe.csprojAssemblyReference.cache
+D:\Môn  học\Năm 3\Học Kỳ 1\Lập Trình Windows\Git_Code_Prọect1\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\obj\Debug\AddRecipeWindow.g.cs
+D:\Môn  học\Năm 3\Học Kỳ 1\Lập Trình Windows\Git_Code_Prọect1\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\obj\Debug\MainWindow.g.cs
+D:\Môn  học\Năm 3\Học Kỳ 1\Lập Trình Windows\Git_Code_Prọect1\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\obj\Debug\SplashScreen.g.cs
+D:\Môn  học\Năm 3\Học Kỳ 1\Lập Trình Windows\Git_Code_Prọect1\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\obj\Debug\HomeScreen.g.cs
+D:\Môn  học\Năm 3\Học Kỳ 1\Lập Trình Windows\Git_Code_Prọect1\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\obj\Debug\App.g.cs
+D:\Môn  học\Năm 3\Học Kỳ 1\Lập Trình Windows\Git_Code_Prọect1\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\obj\Debug\FoodRecipe_Content.g.cs
+D:\Môn  học\Năm 3\Học Kỳ 1\Lập Trình Windows\Git_Code_Prọect1\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\obj\Debug\FoodRecipe_MarkupCompile.cache
+D:\Môn  học\Năm 3\Học Kỳ 1\Lập Trình Windows\Git_Code_Prọect1\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\obj\Debug\FoodRecipe_MarkupCompile.lref
+D:\Môn  học\Năm 3\Học Kỳ 1\Lập Trình Windows\Git_Code_Prọect1\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\obj\Debug\App.baml
+D:\Môn  học\Năm 3\Học Kỳ 1\Lập Trình Windows\Git_Code_Prọect1\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\obj\Debug\AddRecipeWindow.baml
+D:\Môn  học\Năm 3\Học Kỳ 1\Lập Trình Windows\Git_Code_Prọect1\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\obj\Debug\MainWindow.baml
+D:\Môn  học\Năm 3\Học Kỳ 1\Lập Trình Windows\Git_Code_Prọect1\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\obj\Debug\SplashScreen.baml
+D:\Môn  học\Năm 3\Học Kỳ 1\Lập Trình Windows\Git_Code_Prọect1\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\obj\Debug\HomeScreen.baml
+D:\Môn  học\Năm 3\Học Kỳ 1\Lập Trình Windows\Git_Code_Prọect1\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\obj\Debug\FoodRecipe.g.resources
+D:\Môn  học\Năm 3\Học Kỳ 1\Lập Trình Windows\Git_Code_Prọect1\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\obj\Debug\FoodRecipe.Properties.Resources.resources
+D:\Môn  học\Năm 3\Học Kỳ 1\Lập Trình Windows\Git_Code_Prọect1\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\obj\Debug\FoodRecipe.csproj.GenerateResource.cache
+D:\Môn  học\Năm 3\Học Kỳ 1\Lập Trình Windows\Git_Code_Prọect1\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\obj\Debug\FoodRecipe.csproj.CoreCompileInputs.cache
+D:\Môn  học\Năm 3\Học Kỳ 1\Lập Trình Windows\Git_Code_Prọect1\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\obj\Debug\FoodRecipe.csproj.CopyComplete
+D:\Môn  học\Năm 3\Học Kỳ 1\Lập Trình Windows\Git_Code_Prọect1\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\obj\Debug\FoodRecipe.exe
+D:\Môn  học\Năm 3\Học Kỳ 1\Lập Trình Windows\Git_Code_Prọect1\Food-Recipe-Windows-App\FoodRecipe\FoodRecipe\obj\Debug\FoodRecipe.pdb

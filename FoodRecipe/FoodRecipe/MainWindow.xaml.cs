@@ -33,6 +33,8 @@ namespace FoodRecipe
         int itemPerPage = 8;
         int totalPage;
 
+
+        List<Recipe> temp_recipes = new List<Recipe>();
         public List<Recipe> GetAllRecipe(String pathRoot)
         {
             List <Recipe> recipes = new List<Recipe>();
@@ -122,6 +124,35 @@ namespace FoodRecipe
         private void Favorite_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private static readonly string[] VietNamChar = new string[]
+        {
+            "aAeEoOuUiIdDyY",
+            "áàạảãâấầậẩẫăắằặẳẵ",
+            "ÁÀẠẢÃÂẤẦẬẨẪĂẮẰẶẲẴ",
+            "éèẹẻẽêếềệểễ",
+            "ÉÈẸẺẼÊẾỀỆỂỄ",
+            "óòọỏõôốồộổỗơớờợởỡ",
+            "ÓÒỌỎÕÔỐỒỘỔỖƠỚỜỢỞỠ",
+            "úùụủũưứừựửữ",
+            "ÚÙỤỦŨƯỨỪỰỬỮ",
+            "íìịỉĩ",
+            "ÍÌỊỈĨ",
+            "đ",
+            "Đ",
+            "ýỳỵỷỹ",
+            "ÝỲỴỶỸ"
+        };
+        public static string LocDau(string str)
+        {
+            //Thay thế và lọc dấu từng char      
+            for (int i = 1; i < VietNamChar.Length; i++)
+            {
+                for (int j = 0; j < VietNamChar[i].Length; j++)
+                    str = str.Replace(VietNamChar[i][j], VietNamChar[0][i - 1]);
+            }
+            return str;
         }
     }
 }
