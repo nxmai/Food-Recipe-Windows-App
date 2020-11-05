@@ -1,18 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace FoodRecipe
 {
@@ -25,11 +15,11 @@ namespace FoodRecipe
         public Window1()
         {
             InitializeComponent();
-            
+
         }
 
         static Random _rng = new Random();
-        private void DisplayImage(Tuple<string,string,string,string> images)
+        private void DisplayImage(Tuple<string, string, string, string> images)
         {
             String pathRoot = AppDomain.CurrentDomain.BaseDirectory;
             var bitmap = new BitmapImage(
@@ -45,7 +35,7 @@ namespace FoodRecipe
             image2.Source = bitmap;
         }
 
-        void DisplaySplashScreen ()
+        void DisplaySplashScreen()
         {
             Tuple<string, string, string, string>[] imagesArray =
             {
@@ -54,9 +44,9 @@ namespace FoodRecipe
                 Tuple.Create("milk.jpg", "chocolate.jpg", "SỮA VÀ CHOCOLATE", "Mặc dù sự kết hợp này tạo ra một món ăn vô cùng ngon miệng, song các bác sĩ không khuyến khích việc kết hợp sữa và chocolate. Nguyên nhân là do sữa rất giàu canxi và protein, trong khi đó chocolate lại chứa nhiều axit oxalic. Nếu bạn kết hợp hai món ăn này tại cùng thời điểm, canxi trong sữa và axit oxalic từ chocolate có thể tạo ra canxi oxalat. Hợp chất này không những không thể hòa tan mà còn có thể dẫn đến chứng tiêu chảy."),
                 Tuple.Create("meat.jpg","watermelon.jpg", "DƯA HẤU VÀ THỊT", "Thịt thường được xếp vào danh sách những thực phẩm “nóng” đối với cơ thể bạn và ngược lại, dưa hấu thuộc nhóm thực phẩm “mát”. Chính vì sự trái ngược này mà khi được kết hợp với nhau, mức độ hiệu quả về mặt dinh dưỡng của thịt sẽ bị giảm xuống trầm trọng. Không chỉ dừng lại ở đó, điều này thậm chí còn có thể gây nguy hiểm cho những người mắc chứng bệnh suy nhược lá lách và gây ảnh hưởng không nhỏ đến dạ dày của bạn."),
                 Tuple.Create("shrimp.jpg", "vitaminc.jpg", "TÔM VÀ VITAMIN C", "Trong tôm thông thường có nhiều arsenic trioxide (As205). Chính vì thế, nếu bạn kết hợp tôm với các thực phẩm chức năng bổ sung vitamin C thì sẽ dẫn đến việc tạo ra những phản ứng hóa học trong dạ dày của bạn hình thành nên arsenic trioxide. Đây là những thực phẩm kỵ nhau có thể dẫn đến những vấn đề sức khỏe nghiêm trọng, thậm chí là tử vong."),
-                Tuple.Create("persimmon.jpg", "potato.jpg", "HỒNG VÀ KHOAI TÂY", "Trong khoai tây có rất nhiều axit vô cơ. Việc kết hợp khoai và hồng có thể khiến cho cơ thể, cụ thể là dạ dày bạn chứa đầy cặn và xác của trái hồng. Những loại cặn này hầu như không thể hòa tan hoặc pha loãng, chính vì vậy chúng sẽ có ảnh hưởng không nhỏ đối với quá trình tiêu hóa của cơ thể bạn."),                
+                Tuple.Create("persimmon.jpg", "potato.jpg", "HỒNG VÀ KHOAI TÂY", "Trong khoai tây có rất nhiều axit vô cơ. Việc kết hợp khoai và hồng có thể khiến cho cơ thể, cụ thể là dạ dày bạn chứa đầy cặn và xác của trái hồng. Những loại cặn này hầu như không thể hòa tan hoặc pha loãng, chính vì vậy chúng sẽ có ảnh hưởng không nhỏ đối với quá trình tiêu hóa của cơ thể bạn."),
             };
-            
+
             int randomNumber = _rng.Next(6);
 
             DisplayImage(imagesArray[randomNumber]);
@@ -69,7 +59,7 @@ namespace FoodRecipe
             var screen = new MainWindow(); //window2 == homescreen
             this.Close();
             screen.ShowDialog();
-         
+
         }
 
         private void CheckBox_Checked(object sender, RoutedEventArgs e)
@@ -96,7 +86,7 @@ namespace FoodRecipe
             {
                 DisplaySplashScreen();
             }
-            
+
         }
     }
 }

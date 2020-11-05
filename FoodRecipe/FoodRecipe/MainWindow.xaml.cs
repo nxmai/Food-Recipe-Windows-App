@@ -2,17 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace FoodRecipe
 {
@@ -35,7 +25,7 @@ namespace FoodRecipe
 
         public List<Recipe> GetAllRecipe(String pathRoot)
         {
-            List <Recipe> recipes = new List<Recipe>();
+            List<Recipe> recipes = new List<Recipe>();
             var recipeDirInfor = new DirectoryInfo($"{pathRoot}Data").GetDirectories();
             var recipeCount = recipeDirInfor.Length;
 
@@ -45,14 +35,17 @@ namespace FoodRecipe
                 tmp.GetFromFiles(pathRoot, $"{recipeDirInfor[i].Name}");
                 recipes.Add(tmp);
             }
+
+            recipes.Sort((x, y) => DateTime.Compare(x.DateCreate, y.DateCreate));
             return recipes;
+
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             String pathRoot = AppDomain.CurrentDomain.BaseDirectory;
             recipes = GetAllRecipe(pathRoot);
-          
+
             int itemCount = recipes.Count();
 
             totalPage = itemCount / itemPerPage;
@@ -61,7 +54,7 @@ namespace FoodRecipe
                 totalPage += 1;
             }
 
-            
+
             currentPageIndex = 1;
             dataListView.ItemsSource = recipes.Take(itemPerPage);
         }
@@ -81,7 +74,7 @@ namespace FoodRecipe
         }
         private void Prv_Click(object sender, RoutedEventArgs e)
         {
-            if (currentPageIndex <= totalPage )
+            if (currentPageIndex <= totalPage)
             {
                 currentPageIndex--;
                 dataListView.ItemsSource = recipes.Skip((currentPageIndex - 1) * itemPerPage).Take(itemPerPage);
@@ -101,7 +94,7 @@ namespace FoodRecipe
         private void Page2_Click(object sender, RoutedEventArgs e)
         {
             currentPageIndex = 2;
-            dataListView.ItemsSource=recipes.Skip((currentPageIndex-1)*itemPerPage).Take(itemPerPage);
+            dataListView.ItemsSource = recipes.Skip((currentPageIndex - 1) * itemPerPage).Take(itemPerPage);
         }
 
         private void Page3_Click(object sender, RoutedEventArgs e)

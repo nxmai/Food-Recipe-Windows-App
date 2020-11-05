@@ -1,19 +1,10 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using System.Xml.Linq;
 
 namespace FoodRecipe
 {
@@ -82,7 +73,7 @@ namespace FoodRecipe
 
         private void StepDescription_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (String.IsNullOrWhiteSpace( StepDescription.Text))
+            if (String.IsNullOrWhiteSpace(StepDescription.Text))
             {
                 StepDescription.Text = "Step Description";
                 StepDescription.Foreground = new SolidColorBrush(Colors.Gray);
@@ -98,6 +89,7 @@ namespace FoodRecipe
                 StepDescription.Text = "Step Description";
                 StepDescription.Foreground = new SolidColorBrush(Colors.Gray);
                 AddImages.Visibility = Visibility.Visible;
+                StepDescription.IsEnabled = true;
                 Images.Children.Clear();
                 ImagesScrollView.Visibility = Visibility.Collapsed;
                 StepCount.Text = $"{curStepVisibility + 1}?/{Steps.Count}";
@@ -133,6 +125,7 @@ namespace FoodRecipe
                     Steps[curStep][0] = StepDescription.Text;
                     StepDescription.Text = "Step Description";
                     StepDescription.Foreground = new SolidColorBrush(Colors.Gray);
+                    StepDescription.IsEnabled = true;
                     AddImages.Visibility = Visibility.Visible;
                     Images.Children.Clear();
                     ImagesScrollView.Visibility = Visibility.Collapsed;
@@ -153,17 +146,17 @@ namespace FoodRecipe
                 tmp.Add(" ");
                 for (int i = 0; i < screen.FileNames.Length; i++)
                 {
-                    tmp.Add(screen.FileNames[i]); 
+                    tmp.Add(screen.FileNames[i]);
                 }
                 Steps.Add(tmp);
                 AddImages.Visibility = Visibility.Collapsed;
                 ImagesScrollView.Visibility = Visibility.Visible;
-                for (int i=1; i<Steps[curStep].Count; i++)
+                for (int i = 1; i < Steps[curStep].Count; i++)
                 {
                     Image image1 = new Image();
                     image1.Height = 100;
-                    image1.Margin = new Thickness(10,10,10,10);
-                    var imageSteps = new BitmapImage( new Uri(Steps[curStep][i],UriKind.Absolute));
+                    image1.Margin = new Thickness(10, 10, 10, 10);
+                    var imageSteps = new BitmapImage(new Uri(Steps[curStep][i], UriKind.Absolute));
                     image1.Source = imageSteps;
                     Images.Children.Add(image1);
                 }
@@ -186,7 +179,7 @@ namespace FoodRecipe
             {
                 MessageBox.Show("Hmmmm! Món ăn phải có hình mới hấp dẫn chớ");
             }
-            else if (Steps.Count==0)
+            else if (Steps.Count == 0)
             {
                 MessageBox.Show("Oh no! Phải có ít nhất một bước nấu ăn chớ");
             }
@@ -194,12 +187,12 @@ namespace FoodRecipe
             {
                 Recipe recipe = new Recipe(FoodName.Text, FoodIngredient.Text, thumbnailPath, YoutubeLink.Text, false, Steps, "HeartOutline", "White");
                 int err = recipe.SaveToFiles($"{pathRoot}");
-                if (err==0)
+                if (err == 0)
                 {
                     MessageBox.Show("Đã thêm công thức");
 
                 }
-                else if (err==1)
+                else if (err == 1)
                 {
                     MessageBox.Show("Tên công thức món ăn này đã tồn tại. Hãy đổi thành tên khác");
                 }
@@ -213,7 +206,7 @@ namespace FoodRecipe
         private void AddThumbnail_Click(object sender, RoutedEventArgs e)
         {
             var screen = new OpenFileDialog();
-            if (screen.ShowDialog()==true)
+            if (screen.ShowDialog() == true)
             {
                 thumbnailPath = screen.FileName;
                 AddThumbnail.Visibility = Visibility.Collapsed;
@@ -228,13 +221,13 @@ namespace FoodRecipe
 
         private void PrevStep_Click(object sender, RoutedEventArgs e)
         {
-            
-            if (curStepVisibility==0)
+
+            if (curStepVisibility == 0)
             {
                 MessageBox.Show("Bạn đang ở bước đầu tiên rồi á");
             }
             else
-            {   
+            {
                 curStepVisibility--;
                 StepDescription.Text = Steps[curStepVisibility][0];
                 StepDescription.Foreground = new SolidColorBrush(Colors.Black);
@@ -257,22 +250,23 @@ namespace FoodRecipe
 
         private void NextStep_Click(object sender, RoutedEventArgs e)
         {
-           
+
             if (curStepVisibility == curStep)
             {
                 MessageBox.Show("Bạn vừa đi qua bước cuối cùng rồi á. Giờ thêm bước mới đi nè");
                 StepCount.Text = $"{curStepVisibility + 1}?/{Steps.Count}";
             }
-            else if (curStepVisibility == curStep-1)
+            else if (curStepVisibility == curStep - 1)
             {
                 curStepVisibility++;
                 StepDescription.Text = "Step Description";
                 StepDescription.Foreground = new SolidColorBrush(Colors.Gray);
+                StepDescription.IsEnabled = true;
                 AddImages.Visibility = Visibility.Visible;
                 Images.Children.Clear();
                 ImagesScrollView.Visibility = Visibility.Collapsed;
                 StepCount.Text = $"{curStepVisibility + 1}?/{Steps.Count}";
-                
+
             }
             else
             {
@@ -292,7 +286,7 @@ namespace FoodRecipe
                     image1.Source = imageSteps;
                     Images.Children.Add(image1);
                 }
-                StepCount.Text = $"{curStepVisibility+1}/{Steps.Count}";
+                StepCount.Text = $"{curStepVisibility + 1}/{Steps.Count}";
             }
         }
 

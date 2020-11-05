@@ -1,16 +1,10 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Dynamic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
-using System.Drawing;
 using System.Diagnostics;
-using System.Windows.Media.Imaging;
+using System.Drawing;
 using System.IO;
-using System.Security.Principal;
+using System.Linq;
+using System.Windows.Media.Imaging;
 
 namespace FoodRecipe
 {
@@ -24,6 +18,7 @@ namespace FoodRecipe
         public String youtubeLink { get; set; }
         public String heartShape { get; set; }
         public String heartColor { get; set; }
+        public DateTime DateCreate { get; set; }
         //
 
         public Recipe(String newName, String newIngredient, String newThumbnailPath, String newYoutubeLink, bool newIsFavorite, List<List<String>> newStep, String newHeartShape, String newHeartColor)
@@ -35,20 +30,21 @@ namespace FoodRecipe
             if (newYoutubeLink == "Link Youtbe")
                 youtubeLink = "";
             else
-            youtubeLink = newYoutubeLink;
+                youtubeLink = newYoutubeLink;
             step = newStep;
             heartShape = newHeartShape;
             heartColor = newHeartColor;
+            DateCreate = DateTime.Now;
         }
 
-        public Recipe() 
+        public Recipe()
         {
             name = "";
             ingredient = "";
             thumbnailPath = "";
             isFavorite = false;
             step = new List<List<string>>();
-           
+
         }
 
         public int SaveToFiles(String pathRoot)
@@ -77,6 +73,7 @@ namespace FoodRecipe
                         file.WriteLine($"{this.ingredient}");
                         file.WriteLine($"{this.heartShape}");
                         file.WriteLine($"{this.heartColor}");
+                        file.WriteLine($"{this.DateCreate}");
                     }
                     for (int i = 1; i <= this.step.Count(); i++)
                     {
@@ -148,6 +145,9 @@ namespace FoodRecipe
 
                     tmp = file.ReadLine();
                     this.heartColor = tmp;
+
+                    tmp = file.ReadLine();
+                    this.DateCreate = DateTime.Parse(tmp);
                 }
 
                 var stepCount = new DirectoryInfo($"{pathFood}").GetDirectories().Length;
