@@ -232,20 +232,28 @@ namespace FoodRecipe
 
             }
 
-            private void Create_Video()
+        private void Create_Video()
+        {
+
+            string html = "<html><head>";
+            html += "<meta content='IE=Edge' http-equiv='X-UA-Compatible'/>";
+            html += "<iframe id='video' src= 'https://www.youtube.com/embed/{0}' frameborder='0' height='200' width='290' allowfullscreen></iframe>";
+            html += "</body></html>";
+            //this.dimg.Visibility = Visibility.Collapsed;
+            this.video.Visibility = Visibility.Visible;
+
+            string[] video_split = process.link_youtube.Split('=');
+
+            if (video_split.Length >= 2)
             {
-
-                string html = "<html><head>";
-                html += "<meta content='IE=Edge' http-equiv='X-UA-Compatible'/>";
-                html += "<iframe id='video' src= 'https://www.youtube.com/embed/{0}' frameborder='0' height='200' width='290' allowfullscreen></iframe>";
-                html += "</body></html>";
-                //this.dimg.Visibility = Visibility.Collapsed;
-                this.video.Visibility = Visibility.Visible;
-                this.video.NavigateToString(string.Format(html, process.link_youtube.Split('=')[1].Replace("&feature", "")));
+                this.video.NavigateToString(string.Format(html, video_split[1].Replace("&feature", "")));
             }
-
+        }
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
+
+
+            video.Dispose();
             Dying?.Invoke();
         }
     }
