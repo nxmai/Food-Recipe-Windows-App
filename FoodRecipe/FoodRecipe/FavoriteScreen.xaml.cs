@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Windows;
@@ -16,14 +17,14 @@ namespace FoodRecipe
             InitializeComponent();
         }
 
-        List<Recipe> favoriteRecipes;
-        int currentPageIndex = 0;
+        BindingList<Recipe> favoriteRecipes;
+        int currentPageIndex = 1;
         int itemPerPage = 8;
         int totalPage;
 
-        public List<Recipe> GetAllRecipe(String pathRoot)
+        public BindingList<Recipe> GetAllRecipe(String pathRoot)
         {
-            favoriteRecipes = new List<Recipe>();
+            favoriteRecipes = new BindingList<Recipe>();
             var recipeDirInfor = new DirectoryInfo($"{pathRoot}Data").GetDirectories();
             var recipeCount = recipeDirInfor.Length;
             for (int i = 0; i < recipeCount; i++)
@@ -56,8 +57,7 @@ namespace FoodRecipe
             }
 
 
-            currentPageIndex = 1;
-            dataListView.ItemsSource = favoriteRecipes.Take(itemPerPage);
+            dataListView.ItemsSource = favoriteRecipes.Skip((currentPageIndex - 1) * itemPerPage).Take(itemPerPage);
         }
 
         private void Prv_Click(object sender, RoutedEventArgs e)
@@ -81,14 +81,20 @@ namespace FoodRecipe
 
         private void Page2_Click(object sender, RoutedEventArgs e)
         {
-            currentPageIndex = 2;
-            dataListView.ItemsSource = favoriteRecipes.Skip((currentPageIndex - 1) * itemPerPage).Take(itemPerPage);
+            if (totalPage > 1)
+            {
+                currentPageIndex = 2;
+                dataListView.ItemsSource = favoriteRecipes.Skip((currentPageIndex - 1) * itemPerPage).Take(itemPerPage);
+            }
         }
 
         private void Page3_Click(object sender, RoutedEventArgs e)
         {
-            currentPageIndex = 3;
-            dataListView.ItemsSource = favoriteRecipes.Skip((currentPageIndex - 1) * itemPerPage).Take(itemPerPage);
+            if (totalPage > 3)
+            {
+                currentPageIndex = 3;
+                dataListView.ItemsSource = favoriteRecipes.Skip((currentPageIndex - 1) * itemPerPage).Take(itemPerPage);
+            }
         }
 
         private void Nxt_Click(object sender, RoutedEventArgs e)
@@ -102,7 +108,25 @@ namespace FoodRecipe
 
         private void Favorite_Click(object sender, RoutedEventArgs e)
         {
+            var item = (sender as FrameworkElement).DataContext;
+            int index = dataListView.Items.IndexOf(item) + ((currentPageIndex - 1) * itemPerPage);
 
+
+            favoriteRecipes[index].heartShape = "HeartOutline";
+            favoriteRecipes[index].heartColor = "White";
+
+            var folder = AppDomain.CurrentDomain.BaseDirectory;
+            var database = $"{folder}Data/{favoriteRecipes[index].name}/description.txt";
+            var lines = File.ReadAllLines(database);
+
+            lines[0] = "false";
+            lines[3] = "HeartOutline";
+            lines[4] = "White";
+
+            File.WriteAllLines(database, lines);
+
+
+            Window_Loaded(sender, e);
         }
 
         private void HomeScreen_Click(object sender, RoutedEventArgs e)
@@ -110,6 +134,15 @@ namespace FoodRecipe
             var screen = new MainWindow(); //window2 == homescreen
             this.Close();
             screen.ShowDialog();
+        }
+
+        private void ListViewItem_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            var item = (sender as FrameworkElement).DataContext;
+
+            var detailScreen = new DetailScreen((item as Recipe).name);
+
+            detailScreen.Show();
         }
     }
 }

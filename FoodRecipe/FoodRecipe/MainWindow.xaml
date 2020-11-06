@@ -7,43 +7,63 @@
         xmlns:fa="http://schemas.fontawesome.io/icons/"
         
         mc:Ignorable="d"
-        Title="MainWindow" Height="570" Width="900" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Loaded="Window_Loaded">
+        Title="HomeScreen" Height="650" Width="1000" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Loaded="Window_Loaded">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="60"/>
+            <RowDefinition Height="90"/>
             <RowDefinition/>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="55"/>
+            <RowDefinition Height="45"/>
         </Grid.RowDefinitions>
 
 
         <Grid Grid.Row="0">
-            <StackPanel VerticalAlignment="Top">
+            <!--<StackPanel Orientation="Horizontal">
+                <TextBox Height="23" Width="200" 
+                         TextWrapping="Wrap" Text="" 
+                         KeyUp="search_Press"
+                         Name="searchTextBox" 
+                         LostFocus="searchTextBox_LostFocus"
+                         Margin="0,0,274,0"
+                         />
+                
+            </StackPanel>-->
 
-            </StackPanel>
+            <Border BorderBrush="#28292e" BorderThickness="1" VerticalAlignment="Center" CornerRadius="10" Width="500" Height="37">
+                <StackPanel Margin="5" Orientation="Horizontal">
+                    <Button  BorderThickness="0"  Background="White">
+                        <fa:ImageAwesome Icon="Search" Width="18" ></fa:ImageAwesome>
+                    </Button>
 
+                    <TextBox Name="searchTextBox" BorderBrush="White" Height="25" Width="460"
+                         FontSize="15" VerticalContentAlignment="Center" Margin="3 0 0 0" KeyUp="search_Press" 
+                         TextWrapping="Wrap"  LostFocus="searchTextBox_LostFocus"/>
+
+                </StackPanel>
+            </Border>
         </Grid>
 
-        <Grid Width="800" Grid.Row="1">
+        <Grid Width="900" Grid.Row="1" >
             <ListView Name="dataListView" ScrollViewer.HorizontalScrollBarVisibility="Disabled" RenderOptions.BitmapScalingMode="HighQuality" 
-                      BorderThickness="0" ItemsSource="{Binding}">
+                      BorderThickness="0" SelectedItem="selectedItem">
                 <ListView.ItemsPanel>
-                    <ItemsPanelTemplate>
+                    <ItemsPanelTemplate  >
                         <WrapPanel></WrapPanel>
                     </ItemsPanelTemplate>
                 </ListView.ItemsPanel>
 
                 <ListView.ItemTemplate>
-                    <DataTemplate>
+                    <DataTemplate >
                         <StackPanel>
-                            <Border CornerRadius="15,15,15,15" Width="185" Height="135" BorderThickness="0">
-                                <Border.Background>
+                            <Border CornerRadius="15,15,15,15" Width="210" Height="155" BorderThickness="0">
+                                <Border.Background >
                                     <ImageBrush ImageSource="{Binding thumbnailPath}" RenderOptions.BitmapScalingMode="HighQuality" Stretch="UniformToFill"></ImageBrush>
                                 </Border.Background>
                                 <!--<Button>
                                     <fa:ImageAwesome Icon="Heart" Foreground="Red" Width="15"></fa:ImageAwesome>
                                 </Button>-->
-                                <Button x:Name="ButtonFavorite"  Background="{x:Null}" BorderBrush="{x:Null}" Click="Favorite_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Bottom" HorizontalAlignment="Right">
+                                <Button x:Name="ButtonFavorite"  Background="{x:Null}" BorderBrush="{x:Null}"  Click="Favorite_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Bottom" HorizontalAlignment="Right"
+                                        Command= "{Binding OnDownloadClicked}" CommandParameter ="{Binding}">
                                     <fa:ImageAwesome Icon="{Binding heartShape}" Foreground="{Binding heartColor}"  Name="Favorite"  RenderOptions.BitmapScalingMode="HighQuality" Width="25" Height="25" />
                                 </Button>
 
@@ -53,40 +73,45 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
 
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <EventSetter Event="MouseLeftButtonUp" Handler="ListViewItem_PreviewMouseLeftButtonDown" />
+                    </Style>
+                </ListView.ItemContainerStyle>
             </ListView>
         </Grid>
 
         <Grid Grid.Row="2">
-            <StackPanel Margin="650 0 30 0" Orientation="Horizontal">
+            <StackPanel Margin="700 0 10 0" Orientation="Horizontal">
                 <Button Name="Prv" Click="Prv_Click" Content="Prev" Margin="5" 
-                Width="40" Height="25"
+                Width="50" Height="30" FontSize="15"
                 VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" 
                 Background="#f7ce38" />
 
                 <Button Name="Page1" Click="Page1_Click" Content="1" Margin="5" 
-                Width="25" Height="25"
+                Width="30" Height="30" FontSize="15"
                 VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" 
                 Background="#f7ce38" />
 
                 <Button Name="Page2" Click="Page2_Click" Content="2" Margin="5" 
-                Width="25" Height="25" 
+                Width="30" Height="30" FontSize="15" 
                 VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" 
                 Background="#f7ce38" />
 
                 <Button Name="Page3" Click="Page3_Click" Content="3" Margin="5" 
-                Width="25" Height="25"
+                Width="30" Height="30" FontSize="15"
                 VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" 
                 Background="#f7ce38" />
 
                 <Button Name="Nxt" Click="Nxt_Click" Content="Next" Margin="5" 
-                Width="40" Height="25"
+                Width="50" Height="30" FontSize="15"
                 VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" 
                 Background="#f7ce38" />
 
             </StackPanel>
         </Grid>
 
-        <Grid Height="40" VerticalAlignment="Bottom" Background="#f7ce38" Grid.Row="3">
+        <Grid Height="45" VerticalAlignment="Bottom" Background="#f7ce38" Grid.Row="3">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition />
@@ -97,31 +122,31 @@
 
             <Grid Grid.Column="0">
                 <Button Background="#f7ce38" BorderThickness="0">
-                    <fa:ImageAwesome Icon="Home" Foreground="#28292c" Width="15"></fa:ImageAwesome>
+                    <fa:ImageAwesome Icon="Home" Foreground="#28292c" Width="18"></fa:ImageAwesome>
                 </Button>
             </Grid>
 
             <Grid Grid.Column="1">
                 <Button Background="#f7ce38" BorderThickness="0" Click="toFavoriteScreen_Click">
-                    <fa:ImageAwesome Icon="Heart" Foreground="#28292e" Width="15"></fa:ImageAwesome>
+                    <fa:ImageAwesome Icon="Heart" Foreground="#28292e" Width="17"></fa:ImageAwesome>
                 </Button>
             </Grid>
 
             <Grid Grid.Column="2">
                 <Button Background="#f7ce38" BorderThickness="0" Name="addRecipe" Click="addRecipe_Click">
-                    <fa:ImageAwesome Icon="Plus" Foreground="#28292e" Width="15"></fa:ImageAwesome>
+                    <fa:ImageAwesome Icon="Plus" Foreground="#28292e" Width="17"></fa:ImageAwesome>
                 </Button>
             </Grid>
 
             <Grid Grid.Column="3">
                 <Button Background="#f7ce38" BorderThickness="0">
-                    <fa:ImageAwesome Icon="Question" Foreground="#28292e" Width="10"></fa:ImageAwesome>
+                    <fa:ImageAwesome Icon="Question" Foreground="#28292e" Width="14"></fa:ImageAwesome>
                 </Button>
             </Grid>
 
             <Grid Grid.Column="4">
                 <Button Background="#f7ce38" BorderThickness="0">
-                    <fa:ImageAwesome Icon="Bitbucket" Foreground="#28292e" Width="12"></fa:ImageAwesome>
+                    <fa:ImageAwesome Icon="Bitbucket" Foreground="#28292e" Width="15"></fa:ImageAwesome>
                 </Button>
             </Grid>
 

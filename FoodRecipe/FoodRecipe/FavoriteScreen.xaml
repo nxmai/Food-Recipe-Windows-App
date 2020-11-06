@@ -6,13 +6,13 @@
         xmlns:local="clr-namespace:FoodRecipe"
         xmlns:fa="http://schemas.fontawesome.io/icons/"
         mc:Ignorable="d"
-        Title="FavoriteScreen" Height="570" Width="900" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
+        Title="FavoriteScreen" Height="650" Width="1000" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" >
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="60"/>
+            <RowDefinition Height="70"/>
             <RowDefinition/>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="55"/>
+            <RowDefinition Height="45"/>
         </Grid.RowDefinitions>
 
 
@@ -24,7 +24,7 @@
         </Grid>
 
 
-        <Grid Width="800" Grid.Row="1">
+        <Grid Width="900" Grid.Row="1">
             <ListView Name="dataListView" ScrollViewer.HorizontalScrollBarVisibility="Disabled" RenderOptions.BitmapScalingMode="HighQuality" 
                       BorderThickness="0" ItemsSource="{Binding}">
                 <ListView.ItemsPanel>
@@ -36,7 +36,7 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
-                            <Border CornerRadius="15,15,15,15" Width="185" Height="135" BorderThickness="0">
+                            <Border CornerRadius="15,15,15,15" Width="210" Height="155" BorderThickness="0">
                                 <Border.Background>
                                     <ImageBrush ImageSource="{Binding thumbnailPath}" RenderOptions.BitmapScalingMode="HighQuality" Stretch="UniformToFill"></ImageBrush>
                                 </Border.Background>
@@ -54,40 +54,47 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
 
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <EventSetter Event="MouseLeftButtonUp" Handler="ListViewItem_PreviewMouseLeftButtonDown" />
+                    </Style>
+                </ListView.ItemContainerStyle>
+
+
             </ListView>
         </Grid>
 
         <Grid Grid.Row="2">
-            <StackPanel Margin="650 0 30 0" Orientation="Horizontal">
+            <StackPanel Margin="700 0 10 0" Orientation="Horizontal">
                 <Button Name="Prv" Click="Prv_Click" Content="Prev" Margin="5" 
-                Width="40" Height="25"
+                 Width="50" Height="30" FontSize="15"
                 VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" 
                 Background="#f7ce38" />
 
                 <Button Name="Page1" Click="Page1_Click" Content="1" Margin="5" 
-                Width="25" Height="25"
+                Width="30" Height="30" FontSize="15"
                 VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" 
                 Background="#f7ce38" />
 
                 <Button Name="Page2" Click="Page2_Click" Content="2" Margin="5" 
-                Width="25" Height="25" 
+                Width="30" Height="30" FontSize="15"
                 VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" 
                 Background="#f7ce38" />
 
                 <Button Name="Page3" Click="Page3_Click" Content="3" Margin="5" 
-                Width="25" Height="25"
+                Width="30" Height="30" FontSize="15"
                 VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" 
                 Background="#f7ce38" />
 
                 <Button Name="Nxt" Click="Nxt_Click" Content="Next" Margin="5" 
-                Width="40" Height="25"
+                Width="50" Height="30" FontSize="15"
                 VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" 
                 Background="#f7ce38" />
 
             </StackPanel>
         </Grid>
 
-        <Grid Height="40" VerticalAlignment="Bottom" Background="#f7ce38" Grid.Row="3">
+        <Grid Height="45" VerticalAlignment="Bottom" Background="#f7ce38" Grid.Row="3">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition />
