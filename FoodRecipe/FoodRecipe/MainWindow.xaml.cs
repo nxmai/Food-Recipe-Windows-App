@@ -51,7 +51,9 @@ namespace FoodRecipe
                 tmp.GetFromFiles(pathRoot, $"{recipeDirInfor[i].Name}");
                 recipes.Add(tmp);
             }
+            recipes.S
             return recipes;
+            
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
