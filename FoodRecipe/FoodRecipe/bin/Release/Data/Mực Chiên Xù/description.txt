@@ -1,5 +1,5 @@
-false
+true
 https://www.youtube.com/watch?v=0POjX1-QE7k&feature=emb_logo
 Mực , Bột chiên giòn, Muối, Đường, Bột thịt gà, Ớt bột, Bột chiên giòn, Hành lá, Nước đá, Mayonaise, Tương ớt
-HeartOutline
-White
+Heart
+Red

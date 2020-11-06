@@ -11,11 +11,12 @@ using System.Diagnostics;
 using System.Windows.Media.Imaging;
 using System.IO;
 using System.Security.Principal;
+using System.Collections.Specialized;
+using System.ComponentModel;
 
 namespace FoodRecipe
 {
-    public class Recipe
-    {
+    public class Recipe : INotifyPropertyChanged {
         public String name { get; set; }
         public String ingredient { get; set; }
         public String thumbnailPath { get; set; }
@@ -24,6 +25,9 @@ namespace FoodRecipe
         public String youtubeLink { get; set; }
         public String heartShape { get; set; }
         public String heartColor { get; set; }
+
+
+        public event PropertyChangedEventHandler PropertyChanged;
         //
 
         public Recipe(String newName, String newIngredient, String newThumbnailPath, String newYoutubeLink, bool newIsFavorite, List<List<String>> newStep, String newHeartShape, String newHeartColor)

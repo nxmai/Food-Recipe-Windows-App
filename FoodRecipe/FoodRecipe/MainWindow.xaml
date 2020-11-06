@@ -18,32 +18,43 @@
 
 
         <Grid Grid.Row="0">
-            <StackPanel VerticalAlignment="Top">
+            <StackPanel Orientation="Horizontal">
+                <TextBox Height="23" Width="200" 
+                         TextWrapping="Wrap" Text="" 
+                         KeyUp="search_Press"
+                         Name="searchTextBox" 
+                         LostFocus="searchTextBox_LostFocus"
+                         Margin="0,0,274,0"
+                         />
+                <!--<Button Content="Tìm Kiếm" Click="search_Button" Name="seachButton"/>-->
+
 
             </StackPanel>
 
         </Grid>
 
-        <Grid Width="800" Grid.Row="1">
+        <Grid Width="800" Grid.Row="1" >
             <ListView Name="dataListView" ScrollViewer.HorizontalScrollBarVisibility="Disabled" RenderOptions.BitmapScalingMode="HighQuality" 
-                      BorderThickness="0" ItemsSource="{Binding}">
+                      BorderThickness="0" SelectedItem="selectedItem">
                 <ListView.ItemsPanel>
-                    <ItemsPanelTemplate>
+                    <ItemsPanelTemplate  >
                         <WrapPanel></WrapPanel>
                     </ItemsPanelTemplate>
                 </ListView.ItemsPanel>
 
                 <ListView.ItemTemplate>
-                    <DataTemplate>
+                    <DataTemplate >
                         <StackPanel>
                             <Border CornerRadius="15,15,15,15" Width="185" Height="135" BorderThickness="0">
-                                <Border.Background>
+                                <Border.Background >
                                     <ImageBrush ImageSource="{Binding thumbnailPath}" RenderOptions.BitmapScalingMode="HighQuality" Stretch="UniformToFill"></ImageBrush>
                                 </Border.Background>
                                 <!--<Button>
                                     <fa:ImageAwesome Icon="Heart" Foreground="Red" Width="15"></fa:ImageAwesome>
                                 </Button>-->
-                                <Button x:Name="ButtonFavorite"  Background="{x:Null}" BorderBrush="{x:Null}" Click="Favorite_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Bottom" HorizontalAlignment="Right">
+                                <Button x:Name="ButtonFavorite"  Background="{x:Null}" BorderBrush="{x:Null}"  Click="Favorite_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Bottom" HorizontalAlignment="Right"
+                                        Command= "{Binding OnDownloadClicked}"
+                                        CommandParameter ="{Binding}">
                                     <fa:ImageAwesome Icon="{Binding heartShape}" Foreground="{Binding heartColor}"  Name="Favorite"  RenderOptions.BitmapScalingMode="HighQuality" Width="25" Height="25" />
                                 </Button>
 
@@ -52,6 +63,11 @@
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <EventSetter Event="MouseLeftButtonUp" Handler="ListViewItem_PreviewMouseLeftButtonDown" />
+                    </Style>
+                </ListView.ItemContainerStyle>
 
             </ListView>
         </Grid>
@@ -102,7 +118,7 @@
             </Grid>
 
             <Grid Grid.Column="1">
-                <Button Background="#f7ce38" BorderThickness="0">
+                <Button Background="#f7ce38" BorderThickness="0" Click="toFavoriteScreen_Click">
                     <fa:ImageAwesome Icon="Heart" Foreground="#28292e" Width="15"></fa:ImageAwesome>
                 </Button>
             </Grid>
@@ -114,7 +130,7 @@
             </Grid>
 
             <Grid Grid.Column="3">
-                <Button Background="#f7ce38" BorderThickness="0">
+                <Button Background="#f7ce38" BorderThickness="0" Click="search_Click">
                     <fa:ImageAwesome Icon="Question" Foreground="#28292e" Width="10"></fa:ImageAwesome>
                 </Button>
             </Grid>
