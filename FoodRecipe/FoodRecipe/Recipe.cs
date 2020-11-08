@@ -1,14 +1,22 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Drawing;
-using System.IO;
+using System.Dynamic;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Controls;
+using System.Drawing;
+using System.Diagnostics;
 using System.Windows.Media.Imaging;
+using System.IO;
+using System.Security.Principal;
+using System.Collections.Specialized;
+using System.ComponentModel;
 
 namespace FoodRecipe
 {
-    public class Recipe
+    public class Recipe : INotifyPropertyChanged
     {
         public String name { get; set; }
         public String ingredient { get; set; }
@@ -18,7 +26,9 @@ namespace FoodRecipe
         public String youtubeLink { get; set; }
         public String heartShape { get; set; }
         public String heartColor { get; set; }
-        public DateTime DateCreate { get; set; }
+
+
+        public event PropertyChangedEventHandler PropertyChanged;
         //
 
         public Recipe(String newName, String newIngredient, String newThumbnailPath, String newYoutubeLink, bool newIsFavorite, List<List<String>> newStep, String newHeartShape, String newHeartColor)
@@ -34,7 +44,6 @@ namespace FoodRecipe
             step = newStep;
             heartShape = newHeartShape;
             heartColor = newHeartColor;
-            DateCreate = DateTime.Now;
         }
 
         public Recipe()
@@ -73,7 +82,6 @@ namespace FoodRecipe
                         file.WriteLine($"{this.ingredient}");
                         file.WriteLine($"{this.heartShape}");
                         file.WriteLine($"{this.heartColor}");
-                        file.WriteLine($"{this.DateCreate}");
                     }
                     for (int i = 1; i <= this.step.Count(); i++)
                     {
@@ -145,9 +153,6 @@ namespace FoodRecipe
 
                     tmp = file.ReadLine();
                     this.heartColor = tmp;
-
-                    tmp = file.ReadLine();
-                    this.DateCreate = DateTime.Parse(tmp);
                 }
 
                 var stepCount = new DirectoryInfo($"{pathFood}").GetDirectories().Length;
