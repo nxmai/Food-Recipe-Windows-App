@@ -53,6 +53,11 @@ namespace FoodRecipe
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            loader();
+        }
+
+        private void loader()
+        {
             String pathRoot = AppDomain.CurrentDomain.BaseDirectory;
             favoriteRecipes = GetAllRecipe(pathRoot);
 
@@ -152,6 +157,20 @@ namespace FoodRecipe
             var detailScreen = new DetailScreen((item as Recipe).name);
 
             detailScreen.Show();
+        }
+
+        private void addRecipe_Click(object sender, RoutedEventArgs e)
+        {
+            var addRecipeScreen = new AddRecipeWindow();
+            addRecipeScreen.Dying += addRecipeScreenClosing;
+            this.Hide();
+            addRecipeScreen.Show();
+        }
+
+        private void addRecipeScreenClosing()
+        {
+            this.loader();
+            this.Show();
         }
     }
 }
