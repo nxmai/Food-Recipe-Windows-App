@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FoodRecipe" xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="AddRecipeScreen" Height="650" Width="1000" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Closing="Window_Closing">
+        Title="AddRecipeWindow" Height="570" Width="900" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Closing="Window_Closing">
     <Window.Background>
         <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
             <GradientStop Color="#FFFFB800" Offset="1"/>
@@ -28,18 +28,18 @@
             </StackPanel>
             <StackPanel>
                 <Border CornerRadius="10" BorderThickness="0" Margin="10 0 10 5" Padding="2" Background="White">
-                    <TextBox Name="FoodName" FontSize="20" Background="Transparent" BorderBrush="Transparent" Text="Food Name" Foreground="Gray" Padding="5 0 0 0" GotFocus="FoodName_GotFocus" LostFocus="FoodName_LostFocus" Height="35" VerticalContentAlignment="Center"></TextBox>
+                    <TextBox Name="FoodName" FontSize="20" Background="Transparent" BorderBrush="Transparent" Text="Food Name" Foreground="Gray" Padding="5 0 0 0" GotFocus="FoodName_GotFocus" LostFocus="FoodName_LostFocus"></TextBox>
                 </Border>
             </StackPanel>
             <StackPanel>
-
+                
                 <Border CornerRadius="10" Background="white" BorderThickness="0" Margin="10 0 10 5" Padding="2">
-                    <TextBox TextWrapping="Wrap" AcceptsReturn="True" ScrollViewer.VerticalScrollBarVisibility="Visible" Name="FoodIngredient" FontSize="20" Background="Transparent" BorderBrush="Transparent" Text="Ingredient" Foreground="Gray" Padding="5 0 0 0" GotFocus="FoodIngredient_GotFocus" LostFocus="FoodIngredient_LostFocus" VerticalContentAlignment="Center" Height="120" Margin="0,0,0.2,0"></TextBox>
+                    <TextBox TextWrapping="Wrap" AcceptsReturn="True" ScrollViewer.VerticalScrollBarVisibility="Visible" Name="FoodIngredient" FontSize="20" Background="Transparent" BorderBrush="Transparent" Text="Ingredient" Foreground="Gray" Padding="5 0 0 0" GotFocus="FoodIngredient_GotFocus" LostFocus="FoodIngredient_LostFocus" VerticalContentAlignment="Center" Height="100" Margin="0,0,0.2,0"></TextBox>
                 </Border>
             </StackPanel>
             <StackPanel>
                 <Border CornerRadius="10" Background="white" BorderThickness="0" Margin="10,0,10.2,5" Padding="2">
-                    <TextBox x:Name="YoutubeLink" FontSize="20" Background="Transparent" BorderBrush="Transparent" Text="Link Youtube" Foreground="Gray" Padding="5 0 0 0" GotFocus="YoutubeLink_GotFocus" LostFocus="YoutubeLink_LostFocus" Height="35" VerticalContentAlignment="Center"/>
+                    <TextBox x:Name="YoutubeLink" FontSize="20" Background="Transparent" BorderBrush="Transparent" Text="Link Youtube" Foreground="Gray" Padding="5 0 0 0" GotFocus="YoutubeLink_GotFocus" LostFocus="YoutubeLink_LostFocus"/>
                 </Border>
             </StackPanel>
 
@@ -66,7 +66,7 @@
             -->
         </StackPanel>
         <StackPanel Grid.Column="0" Grid.Row="1">
-            <Border CornerRadius="10" Background="White" BorderThickness="0" Margin="10,10,10.2,10" Padding="2" Height="245" >
+            <Border CornerRadius="10" Background="White" BorderThickness="0" Margin="10,10,10.2,10" Padding="2" Height="221" >
                 <StackPanel  VerticalAlignment="Center" HorizontalAlignment="Center">
                     <StackPanel Name="Thumbnail" Visibility="Collapsed"></StackPanel>
                     <Button Name="AddThumbnail" Background="Transparent" BorderBrush="Transparent" Click="AddThumbnail_Click" Height="218" Width="312">
@@ -97,14 +97,14 @@
             </Button>
         </StackPanel>
         <StackPanel  Grid.Column="1" Grid.Row="0">
-            <Border CornerRadius="10" Background="White" BorderThickness="0" Margin="10,10,10.4,10" Padding="2" Height="250">
+            <Border CornerRadius="10" Background="White" BorderThickness="0" Margin="10,10,10.4,10" Padding="2" Height="220">
                 <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-                    <TextBox Name="StepDescription" FontSize="20" Background="Transparent" BorderBrush="Transparent" Text="Step Description" Foreground="Gray" Padding="5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" GotFocus="StepDescription_GotFocus" LostFocus="StepDescription_LostFocus" Height="220" Width="535" />
+                    <TextBox Name="StepDescription" FontSize="20" Background="Transparent" BorderBrush="Transparent" Text="Step Description" Foreground="Gray" Padding="5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" GotFocus="StepDescription_GotFocus" LostFocus="StepDescription_LostFocus" Height="219" Width="535" />
                 </StackPanel>
             </Border>
         </StackPanel>
         <StackPanel  Grid.Column="1" Grid.Row="1">
-            <Border CornerRadius="10" Background="White" BorderThickness="0" Margin="10,10,10.4,10" Padding="2" Height="245" >
+            <Border CornerRadius="10" Background="White" BorderThickness="0" Margin="10,10,10.4,10" Padding="2" Height="221" >
                 <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
 
                     <ScrollViewer Name="ImagesScrollView" Visibility="Collapsed"  Height = "150" Width = "450" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Visible" >

@@ -58,11 +58,6 @@ namespace FoodRecipe
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            load();
-        }
-
-        private void load()
-        {
             String pathRoot = AppDomain.CurrentDomain.BaseDirectory;
             recipes = GetAllRecipe(pathRoot);
 
@@ -92,7 +87,6 @@ namespace FoodRecipe
 
         private void addRecipeScreenClosing()
         {
-            this.load();
             this.Show();
         }
 
@@ -104,26 +98,12 @@ namespace FoodRecipe
         {
             if (currentPageIndex <= totalPage)
             {
-                if (isSearching == true)
+                currentPageIndex--;
+                dataListView.ItemsSource = recipes.Skip((currentPageIndex - 1) * itemPerPage).Take(itemPerPage);
+                if (currentPageIndex <= 1)
                 {
-                    currentPageIndex--;
-                    dataListView.ItemsSource = searchInList(recipes).Skip((currentPageIndex - 1) * itemPerPage).Take(itemPerPage);
-                    if (currentPageIndex <= 1)
-                    {
-                        currentPageIndex = 1;
-                    }
+                    currentPageIndex = 1;
                 }
-                else
-                {
-                    currentPageIndex--;
-                    dataListView.ItemsSource = recipes.Skip((currentPageIndex - 1) * itemPerPage).Take(itemPerPage);
-                    if (currentPageIndex <= 1)
-                    {
-                        currentPageIndex = 1;
-                    }
-                }
-
-
             }
         }
 
@@ -138,12 +118,13 @@ namespace FoodRecipe
             {
                 dataListView.ItemsSource = recipes.Take(itemPerPage);
             }
-
+            
         }
 
         private void Page2_Click(object sender, RoutedEventArgs e)
         {
             currentPageIndex = 2;
+           
 
             if (isSearching == true)
             {
@@ -154,7 +135,7 @@ namespace FoodRecipe
                 dataListView.ItemsSource = recipes.Skip((currentPageIndex - 1) * itemPerPage).Take(itemPerPage);
             }
 
-            // 
+           // 
         }
 
         private void Page3_Click(object sender, RoutedEventArgs e)
@@ -174,16 +155,8 @@ namespace FoodRecipe
         {
             if (currentPageIndex < totalPage)
             {
-                if (isSearching == true)
-                {
-                    currentPageIndex++;
-                    dataListView.ItemsSource = searchInList(recipes).Skip((currentPageIndex - 1) * itemPerPage).Take(itemPerPage);
-                }
-                else
-                {
-                    currentPageIndex++;
-                    dataListView.ItemsSource = recipes.Skip((currentPageIndex - 1) * itemPerPage).Take(itemPerPage);
-                }
+                currentPageIndex++;
+                dataListView.ItemsSource = recipes.Skip((currentPageIndex - 1) * itemPerPage).Take(itemPerPage);
             }
         }
 
@@ -303,19 +276,19 @@ namespace FoodRecipe
             return str;
         }
 
-
+        
 
         private void search_Click(object sender, RoutedEventArgs e)
         {
-            for (int i = 0; i < recipes.Count; i++)
+            for (int i=0;i<recipes.Count; i++)
             {
-                if (LocDau(recipes[i].name).ToUpper().Contains(LocDau(searchTextBox.Text.ToUpper())))
-                    MessageBox.Show(LocDau(recipes[i].name));
+                if (LocDau(recipes[i].name).ToUpper().Contains(LocDau(searchTextBox.Text.ToUpper()))  )
+                MessageBox.Show(LocDau(recipes[i].name));
             }
         }
 
 
-        public BindingList<Recipe> searchInList(BindingList<Recipe> search_recipe)
+        public BindingList <Recipe> searchInList (BindingList<Recipe> search_recipe)
         {
             BindingList<Recipe> result = new BindingList<Recipe>();
 
@@ -325,12 +298,12 @@ namespace FoodRecipe
                     result.Add(search_Recipes[i]);
             }
 
-
+            
 
             return result;
         }
 
-
+        
 
         private void search_Press(object sender, KeyEventArgs e)
         {
@@ -349,7 +322,7 @@ namespace FoodRecipe
 
         private void leave_Search_Event(object sender, DragEventArgs e)
         {
-
+          
         }
 
         private void searchTextBox_LostFocus(object sender, RoutedEventArgs e)
@@ -360,7 +333,7 @@ namespace FoodRecipe
 
         private void ListViewItem_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-
+            
 
 
             //var temp = sender as Button;
