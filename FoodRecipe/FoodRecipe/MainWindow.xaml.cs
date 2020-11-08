@@ -51,6 +51,7 @@ namespace FoodRecipe
                 tmp.GetFromFiles(pathRoot, $"{recipeDirInfor[i].Name}");
                 recipes.Add(tmp);
             }
+            recipes = new BindingList<Recipe>(recipes.OrderBy(x => x.DateCreate).ToList());
             return recipes;
         }
 
