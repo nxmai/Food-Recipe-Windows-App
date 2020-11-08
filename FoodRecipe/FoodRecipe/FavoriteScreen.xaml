@@ -116,7 +116,7 @@
             </Grid>
 
             <Grid Grid.Column="2">
-                <Button Background="#f7ce38" BorderThickness="0">
+                <Button Background="#f7ce38" BorderThickness="0" Click="addRecipe_Click" >
                     <fa:ImageAwesome Icon="Plus" Foreground="#28292e" Width="15"></fa:ImageAwesome>
                 </Button>
             </Grid>
