@@ -251,6 +251,7 @@ namespace FoodRecipe
 
 
             }
+            load();
         }
 
         private void toFavoriteScreen_Click(object sender, RoutedEventArgs e)

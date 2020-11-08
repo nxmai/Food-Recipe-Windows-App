@@ -242,9 +242,6 @@
     <None Include="Data\Ba Chỉ Chiên Giòn\description.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Data\Ba Chỉ Chiên Giòn\ingredient.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <None Include="Data\Ba Chỉ Chiên Giòn\thumbnail.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
