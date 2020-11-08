@@ -51,6 +51,7 @@ namespace FoodRecipe
                 tmp.GetFromFiles(pathRoot, $"{recipeDirInfor[i].Name}");
                 recipes.Add(tmp);
             }
+            recipes = new BindingList<Recipe>(recipes.OrderBy(x => x.DateCreate).ToList());
             return recipes;
         }
 
@@ -188,43 +189,6 @@ namespace FoodRecipe
         private void Favorite_Click(object sender, RoutedEventArgs e)
         {
             var item = (sender as FrameworkElement).DataContext;
-            ///*int index = dataListView.Items.IndexOf(item) + ((currentPageIndex - 1) * itemPerPage);*/
-
-            //if (recipes[index].heartShape == "Heart" && recipes[index].heartColor == "Red")
-            //{
-            //    recipes[index].heartShape = "HeartOutline";
-            //    recipes[index].heartColor = "White";
-
-            //    var folder = AppDomain.CurrentDomain.BaseDirectory;
-            //    var database = $"{folder}Data/{recipes[index].name}/description.txt";
-            //    var lines = File.ReadAllLines(database);
-
-            //    lines[0] = "false";
-            //    lines[3] = "HeartOutline";
-            //    lines[4] = "White";
-
-            //    File.WriteAllLines(database, lines);
-            //}
-            //else
-            //{
-            //    recipes[index].heartShape = "Heart";
-            //    recipes[index].heartColor = "Red";
-
-
-            //    var folder = AppDomain.CurrentDomain.BaseDirectory;
-            //    var database = $"{folder}Data/{recipes[index].name}/description.txt";
-            //    var lines = File.ReadAllLines(database);
-
-            //    lines[0] = "true";
-            //    lines[3] = "Heart";
-            //    lines[4] = "Red";
-
-            //    File.WriteAllLines(database, lines);
-
-
-            //}
-
-            //int index = dataListView.Items.IndexOf(item);
 
 
             if ((item as Recipe).heartShape == "Heart" && (item as Recipe).heartColor == "Red")
@@ -397,4 +361,5 @@ namespace FoodRecipe
 
 
     }
+
 }

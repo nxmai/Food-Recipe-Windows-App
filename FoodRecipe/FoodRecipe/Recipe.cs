@@ -26,6 +26,7 @@ namespace FoodRecipe
         public String youtubeLink { get; set; }
         public String heartShape { get; set; }
         public String heartColor { get; set; }
+        public DateTime DateCreate { get; set; }
 
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -44,6 +45,7 @@ namespace FoodRecipe
             step = newStep;
             heartShape = newHeartShape;
             heartColor = newHeartColor;
+            DateCreate = DateTime.Now;
         }
 
         public Recipe()
@@ -82,6 +84,7 @@ namespace FoodRecipe
                         file.WriteLine($"{this.ingredient}");
                         file.WriteLine($"{this.heartShape}");
                         file.WriteLine($"{this.heartColor}");
+                        file.WriteLine($"{this.DateCreate}");
                     }
                     for (int i = 1; i <= this.step.Count(); i++)
                     {
@@ -153,6 +156,9 @@ namespace FoodRecipe
 
                     tmp = file.ReadLine();
                     this.heartColor = tmp;
+
+                    tmp = file.ReadLine();
+                    this.DateCreate = DateTime.Parse(tmp);
                 }
 
                 var stepCount = new DirectoryInfo($"{pathFood}").GetDirectories().Length;
@@ -199,21 +205,16 @@ namespace FoodRecipe
                              $"{thumbnailPath}",
                              UriKind.Absolute)
                      );
-
                  using (var file = new System.IO.StreamReader($"{pathFood}/ingredient.txt"))
                  {
                      var tmp = file.ReadLine();
                      this.youtubeLink = tmp;
-
                      tmp = file.ReadToEnd();
                      tmp = tmp.Replace(',', '\n');
                      this.ingredient = tmp;
-
                  }
-
                  using (var file = new System.IO.StreamWriter($"{pathFood}/description.txt"))
                  {
-
                      file.WriteLine("false");
                      file.WriteLine($"{this.youtubeLink}");
                      this.ingredient = this.ingredient.Replace('\n', ' ');
@@ -232,7 +233,6 @@ namespace FoodRecipe
                     {
                         tmpStep.Add(file1.ReadToEnd());
                     }
-
                     var ImagesListObj = new DirectoryInfo($"{pathFood}/{i}").GetFiles("*.jpg");
                     for (int j = 0; j < ImagesListObj.Length; j++)
                     {
