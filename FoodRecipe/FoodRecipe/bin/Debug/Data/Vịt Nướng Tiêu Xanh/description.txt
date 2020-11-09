@@ -1,5 +1,5 @@
-false
+true
 https://www.youtube.com/watch?v=EgDUgXCHK6Y&feature=emb_logo
 Vịt 1 con, Củ kiệu, Rau thơm, Tiêu xanh, Gốc hành, Hành tím, Tiêu sọ xay , Mật ong, Muối , Muối hạt, Nước mắm, Dầu ăn, Sốt ướp
-HeartOutline
-White
+Heart
+Red

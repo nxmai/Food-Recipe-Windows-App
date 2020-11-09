@@ -74,6 +74,14 @@ namespace FoodRecipe
             dataListView.ItemsSource = favoriteRecipes.Skip((currentPageIndex - 1) * itemPerPage).Take(itemPerPage);
         }
 
+        private void First_Click(object sender, RoutedEventArgs e)
+        {
+            currentPageIndex = 1;
+            dataListView.ItemsSource = favoriteRecipes.Take(itemPerPage);
+
+
+        }
+
         private void Prv_Click(object sender, RoutedEventArgs e)
         {
             if (currentPageIndex <= totalPage)
@@ -87,29 +95,7 @@ namespace FoodRecipe
             }
         }
 
-        private void Page1_Click(object sender, RoutedEventArgs e)
-        {
-            currentPageIndex = 1;
-            dataListView.ItemsSource = favoriteRecipes.Take(itemPerPage);
-        }
 
-        private void Page2_Click(object sender, RoutedEventArgs e)
-        {
-            if (totalPage > 1)
-            {
-                currentPageIndex = 2;
-                dataListView.ItemsSource = favoriteRecipes.Skip((currentPageIndex - 1) * itemPerPage).Take(itemPerPage);
-            }
-        }
-
-        private void Page3_Click(object sender, RoutedEventArgs e)
-        {
-            if (totalPage > 3)
-            {
-                currentPageIndex = 3;
-                dataListView.ItemsSource = favoriteRecipes.Skip((currentPageIndex - 1) * itemPerPage).Take(itemPerPage);
-            }
-        }
 
         private void Nxt_Click(object sender, RoutedEventArgs e)
         {
@@ -118,6 +104,15 @@ namespace FoodRecipe
                 currentPageIndex++;
                 dataListView.ItemsSource = favoriteRecipes.Skip((currentPageIndex - 1) * itemPerPage).Take(itemPerPage);
             }
+
+
+        }
+
+        private void Last_Click(object sender, RoutedEventArgs e)
+        {
+            currentPageIndex = totalPage;
+            dataListView.ItemsSource = favoriteRecipes.Skip((currentPageIndex - 1) * itemPerPage).Take(itemPerPage);
+
         }
 
         private void Favorite_Click(object sender, RoutedEventArgs e)
@@ -173,7 +168,7 @@ namespace FoodRecipe
 
         private void addRecipeScreenClosing()
         {
-           
+
             this.load();
             this.Show();
         }

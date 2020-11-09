@@ -25,8 +25,12 @@
 
 
         <Grid Width="900" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="43*"/>
+                <ColumnDefinition Width="7*"/>
+            </Grid.ColumnDefinitions>
             <ListView Name="dataListView" ScrollViewer.HorizontalScrollBarVisibility="Disabled" RenderOptions.BitmapScalingMode="HighQuality" 
-                      BorderThickness="0" ItemsSource="{Binding}">
+                      BorderThickness="0" ItemsSource="{Binding}" Grid.ColumnSpan="2">
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <WrapPanel></WrapPanel>
@@ -65,31 +69,32 @@
         </Grid>
 
         <Grid Grid.Row="2">
-            <StackPanel Margin="700 0 10 0" Orientation="Horizontal">
-                <Button Name="Prv" Click="Prv_Click" Content="Prev" Margin="5" 
-                 Width="50" Height="30" FontSize="15"
+            <StackPanel Margin="730 0 10 0" Orientation="Horizontal">
+                <Button Name="first" Click="First_Click" Margin="5,0,5,-0.333" Width="50" Height="55" FontSize="15"
                 VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" 
-                Background="#f7ce38" />
+                Background="White" BorderThickness="0" >
+                    <Image Source="Icon/first.png" Width="37" Height="40"></Image>
+                </Button>
 
-                <Button Name="Page1" Click="Page1_Click" Content="1" Margin="5" 
-                Width="30" Height="30" FontSize="15"
+                <Button Name="prv" Click="Prv_Click" Margin="5,0,20,-0.333" Width="30" Height="55" FontSize="15"
                 VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" 
-                Background="#f7ce38" />
+                Background="White" BorderThickness="0" >
+                    <Image Source="Icon/previous_arrow.png"></Image>
+                </Button>
 
-                <Button Name="Page2" Click="Page2_Click" Content="2" Margin="5" 
-                Width="30" Height="30" FontSize="15"
-                VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" 
-                Background="#f7ce38" />
 
-                <Button Name="Page3" Click="Page3_Click" Content="3" Margin="5" 
-                Width="30" Height="30" FontSize="15"
-                VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" 
-                Background="#f7ce38" />
 
-                <Button Name="Nxt" Click="Nxt_Click" Content="Next" Margin="5" 
-                Width="50" Height="30" FontSize="15"
+                <Button Name="next" Click="Nxt_Click"  Margin="5,0,5,-0.333" Width="30" Height="55" FontSize="15" 
                 VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" 
-                Background="#f7ce38" />
+                Background="White" BorderThickness="0" >
+                    <Image Source="Icon/next_arrow.png"></Image>
+                </Button>
+
+                <Button Name="last" Click="Last_Click" Margin="5,0,5,-0.333" Width="50" Height="55" FontSize="15"
+                VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                Background="White" BorderThickness="0">
+                    <Image Source="Icon/last.png" Width="37" Height="40"></Image>
+                </Button>
 
             </StackPanel>
         </Grid>
