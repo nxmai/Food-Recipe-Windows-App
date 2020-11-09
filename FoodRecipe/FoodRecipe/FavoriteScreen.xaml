@@ -110,31 +110,31 @@
 
             <Grid Grid.Column="0">
                 <Button Background="#f7ce38" BorderThickness="0" Click="HomeScreen_Click">
-                    <fa:ImageAwesome Icon="Home" Foreground="#28292c" Width="15"></fa:ImageAwesome>
+                    <fa:ImageAwesome Icon="Home" Foreground="#28292c" Width="18"></fa:ImageAwesome>
                 </Button>
             </Grid>
 
             <Grid Grid.Column="1">
                 <Button Background="#f7ce38" BorderThickness="0">
-                    <fa:ImageAwesome Icon="Heart" Foreground="#28292e" Width="15"></fa:ImageAwesome>
+                    <fa:ImageAwesome Icon="Heart" Foreground="#28292e" Width="17"></fa:ImageAwesome>
                 </Button>
             </Grid>
 
             <Grid Grid.Column="2">
                 <Button Background="#f7ce38" BorderThickness="0" Click="addRecipe_Click">
-                    <fa:ImageAwesome Icon="Plus" Foreground="#28292e" Width="15"></fa:ImageAwesome>
+                    <fa:ImageAwesome Icon="Plus" Foreground="#28292e" Width="17"></fa:ImageAwesome>
                 </Button>
             </Grid>
 
             <Grid Grid.Column="3">
                 <Button Background="#f7ce38" BorderThickness="0">
-                    <fa:ImageAwesome Icon="Question" Foreground="#28292e" Width="10"></fa:ImageAwesome>
+                    <fa:ImageAwesome Icon="Question" Foreground="#28292e" Width="14"></fa:ImageAwesome>
                 </Button>
             </Grid>
 
             <Grid Grid.Column="4">
                 <Button Background="#f7ce38" BorderThickness="0">
-                    <fa:ImageAwesome Icon="Bitbucket" Foreground="#28292e" Width="12"></fa:ImageAwesome>
+                    <fa:ImageAwesome Icon="Info" Foreground="#28292e" Width="9"></fa:ImageAwesome>
                 </Button>
             </Grid>
 

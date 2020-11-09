@@ -137,7 +137,7 @@
 
             <Grid Grid.Column="4">
                 <Button Background="#f7ce38" BorderThickness="0">
-                    <fa:ImageAwesome Icon="Bitbucket" Foreground="#28292e" Width="15"></fa:ImageAwesome>
+                    <fa:ImageAwesome Icon="Info" Foreground="#28292e" Width="9"></fa:ImageAwesome>
                 </Button>
             </Grid>
 

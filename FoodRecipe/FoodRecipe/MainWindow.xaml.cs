@@ -52,6 +52,9 @@ namespace FoodRecipe
                 recipes.Add(tmp);
             }
             recipes = new BindingList<Recipe>(recipes.OrderBy(x => x.DateCreate).ToList());
+
+            //recipes = new BindingList<Recipe>(recipes.OrderByDescending(x => x.name).ToList());
+
             return recipes;
         }
 
