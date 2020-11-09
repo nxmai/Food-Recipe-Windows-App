@@ -18,16 +18,6 @@
 
 
         <Grid Grid.Row="0">
-            <!--<StackPanel Orientation="Horizontal">
-                <TextBox Height="23" Width="200" 
-                         TextWrapping="Wrap" Text="" 
-                         KeyUp="search_Press"
-                         Name="searchTextBox" 
-                         LostFocus="searchTextBox_LostFocus"
-                         Margin="0,0,274,0"
-                         />
-                
-            </StackPanel>-->
 
             <Border BorderBrush="#28292e" BorderThickness="1" VerticalAlignment="Center" CornerRadius="10" Width="500" Height="37">
                 <StackPanel Margin="5" Orientation="Horizontal">
@@ -82,31 +72,32 @@
         </Grid>
 
         <Grid Grid.Row="2">
-            <StackPanel Margin="700 0 10 0" Orientation="Horizontal">
-                <Button Name="Prv" Click="Prv_Click" Content="Prev" Margin="5" 
-                Width="50" Height="30" FontSize="15"
+            <StackPanel Margin="730 0 10 0" Orientation="Horizontal">
+                <Button Name="first" Click="First_Click" Margin="5,0,5,-0.333" Width="50" Height="55" FontSize="15"
                 VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" 
-                Background="#f7ce38" />
+                Background="White" BorderThickness="0" >
+                    <Image Source="Icon/first.png" Width="37" Height="40"></Image>
+                </Button>
 
-                <Button Name="Page1" Click="Page1_Click" Content="1" Margin="5" 
-                Width="30" Height="30" FontSize="15"
+                <Button Name="prv" Click="Prv_Click" Margin="5,0,20,-0.333" Width="30" Height="55" FontSize="15"
                 VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" 
-                Background="#f7ce38" />
+                Background="White" BorderThickness="0" >
+                    <Image Source="Icon/previous_arrow.png"></Image>
+                </Button>
 
-                <Button Name="Page2" Click="Page2_Click" Content="2" Margin="5" 
-                Width="30" Height="30" FontSize="15" 
-                VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" 
-                Background="#f7ce38" />
 
-                <Button Name="Page3" Click="Page3_Click" Content="3" Margin="5" 
-                Width="30" Height="30" FontSize="15"
-                VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" 
-                Background="#f7ce38" />
 
-                <Button Name="Nxt" Click="Nxt_Click" Content="Next" Margin="5" 
-                Width="50" Height="30" FontSize="15"
+                <Button Name="next" Click="Nxt_Click"  Margin="5,0,5,-0.333" Width="30" Height="55" FontSize="15" 
                 VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" 
-                Background="#f7ce38" />
+                Background="White" BorderThickness="0" >
+                    <Image Source="Icon/next_arrow.png"></Image>
+                </Button>
+
+                <Button Name="last" Click="Last_Click" Margin="5,0,5,-0.333" Width="50" Height="55" FontSize="15"
+                VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                Background="White" BorderThickness="0">
+                    <Image Source="Icon/last.png" Width="37" Height="40"></Image>
+                </Button>
 
             </StackPanel>
         </Grid>

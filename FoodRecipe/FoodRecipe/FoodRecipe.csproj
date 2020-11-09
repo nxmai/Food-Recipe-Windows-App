@@ -248,6 +248,8 @@
     <None Include="Data\Ba Chỉ Chiên Giòn\thumbnail.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <Resource Include="Icon\first.png" />
+    <Resource Include="Icon\last.png" />
     <Content Include="Icon\next.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -258,6 +260,8 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Icon\next_arrow.png" />
+    <Resource Include="Icon\previous_arrow.png" />
     <Content Include="Icon\reset.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

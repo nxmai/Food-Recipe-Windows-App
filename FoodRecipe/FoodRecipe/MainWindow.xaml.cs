@@ -99,6 +99,19 @@ namespace FoodRecipe
         {
             this.Show();
         }
+        private void First_Click(object sender, RoutedEventArgs e)
+        {
+            currentPageIndex = 1;
+            if (isSearching == true)
+            {
+                dataListView.ItemsSource = searchInList(recipes).Take(itemPerPage);
+            }
+            else
+            {
+                dataListView.ItemsSource = recipes.Take(itemPerPage);
+            }
+        }
+
         private void Prv_Click(object sender, RoutedEventArgs e)
         {
             if (currentPageIndex <= totalPage)
@@ -121,53 +134,10 @@ namespace FoodRecipe
                         currentPageIndex = 1;
                     }
                 }
-
-
             }
         }
 
-        private void Page1_Click(object sender, RoutedEventArgs e)
-        {
-            currentPageIndex = 1;
-            if (isSearching == true)
-            {
-                dataListView.ItemsSource = searchInList(recipes).Take(itemPerPage);
-            }
-            else
-            {
-                dataListView.ItemsSource = recipes.Take(itemPerPage);
-            }
-
-        }
-
-        private void Page2_Click(object sender, RoutedEventArgs e)
-        {
-            currentPageIndex = 2;
-
-            if (isSearching == true)
-            {
-                dataListView.ItemsSource = searchInList(recipes).Skip((currentPageIndex - 1) * itemPerPage).Take(itemPerPage);
-            }
-            else
-            {
-                dataListView.ItemsSource = recipes.Skip((currentPageIndex - 1) * itemPerPage).Take(itemPerPage);
-            }
-
-            // 
-        }
-
-        private void Page3_Click(object sender, RoutedEventArgs e)
-        {
-            currentPageIndex = 3;
-            if (isSearching == true)
-            {
-                dataListView.ItemsSource = searchInList(recipes).Skip((currentPageIndex - 1) * itemPerPage).Take(itemPerPage);
-            }
-            else
-            {
-                dataListView.ItemsSource = recipes.Skip((currentPageIndex - 1) * itemPerPage).Take(itemPerPage);
-            }
-        }
+        
 
         private void Nxt_Click(object sender, RoutedEventArgs e)
         {
@@ -183,6 +153,20 @@ namespace FoodRecipe
                     currentPageIndex++;
                     dataListView.ItemsSource = recipes.Skip((currentPageIndex - 1) * itemPerPage).Take(itemPerPage);
                 }
+            }
+        }
+
+        private void Last_Click(object sender, RoutedEventArgs e)
+        {
+            currentPageIndex = totalPage;
+            if (isSearching == true)
+            {
+               
+                dataListView.ItemsSource = searchInList(recipes).Skip((currentPageIndex - 1) * itemPerPage).Take(itemPerPage);
+            }
+            else
+            {
+                dataListView.ItemsSource = recipes.Skip((currentPageIndex - 1) * itemPerPage).Take(itemPerPage);
             }
         }
 
