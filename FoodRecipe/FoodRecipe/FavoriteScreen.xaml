@@ -72,13 +72,13 @@
             <StackPanel Margin="730 0 10 0" Orientation="Horizontal">
                 <Button Name="first" Click="First_Click" Margin="5,0,5,-0.333" Width="50" Height="55" FontSize="15"
                 VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" 
-                Background="White" BorderThickness="0" >
+                Background="White" BorderThickness="0" Style="{StaticResource ButtonPaging}" >
                     <Image Source="Icon/first.png" Width="37" Height="40"></Image>
                 </Button>
 
                 <Button Name="prv" Click="Prv_Click" Margin="5,0,20,-0.333" Width="30" Height="55" FontSize="15"
                 VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" 
-                Background="White" BorderThickness="0" >
+                Background="White" BorderThickness="0" Style="{StaticResource ButtonPaging}">
                     <Image Source="Icon/previous_arrow.png"></Image>
                 </Button>
 
@@ -86,13 +86,13 @@
 
                 <Button Name="next" Click="Nxt_Click"  Margin="5,0,5,-0.333" Width="30" Height="55" FontSize="15" 
                 VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" 
-                Background="White" BorderThickness="0" >
+                Background="White" BorderThickness="0" Style="{StaticResource ButtonPaging}">
                     <Image Source="Icon/next_arrow.png"></Image>
                 </Button>
 
                 <Button Name="last" Click="Last_Click" Margin="5,0,5,-0.333" Width="50" Height="55" FontSize="15"
                 VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" 
-                Background="White" BorderThickness="0">
+                Background="White" BorderThickness="0" Style="{StaticResource ButtonPaging}">
                     <Image Source="Icon/last.png" Width="37" Height="40"></Image>
                 </Button>
 
@@ -109,31 +109,31 @@
             </Grid.ColumnDefinitions>
 
             <Grid Grid.Column="0">
-                <Button Background="#f7ce38" BorderThickness="0" Click="HomeScreen_Click">
+                <Button Background="#f7ce38" BorderThickness="0" Click="HomeScreen_Click" Template="{StaticResource mouseHoverButton}">
                     <fa:ImageAwesome Icon="Home" Foreground="#28292c" Width="18"></fa:ImageAwesome>
                 </Button>
             </Grid>
 
             <Grid Grid.Column="1">
-                <Button Background="#f7ce38" BorderThickness="0">
+                <Button Background="#f7ce38" BorderThickness="0" Template="{StaticResource mouseHoverButton}">
                     <fa:ImageAwesome Icon="Heart" Foreground="#28292e" Width="17"></fa:ImageAwesome>
                 </Button>
             </Grid>
 
             <Grid Grid.Column="2">
-                <Button Background="#f7ce38" BorderThickness="0" Click="addRecipe_Click">
+                <Button Background="#f7ce38" BorderThickness="0" Click="addRecipe_Click" Template="{StaticResource mouseHoverButton}">
                     <fa:ImageAwesome Icon="Plus" Foreground="#28292e" Width="17"></fa:ImageAwesome>
                 </Button>
             </Grid>
 
             <Grid Grid.Column="3">
-                <Button Background="#f7ce38" BorderThickness="0">
+                <Button Background="#f7ce38" BorderThickness="0" Template="{StaticResource mouseHoverButton}">
                     <fa:ImageAwesome Icon="Question" Foreground="#28292e" Width="14"></fa:ImageAwesome>
                 </Button>
             </Grid>
 
             <Grid Grid.Column="4">
-                <Button Background="#f7ce38" BorderThickness="0">
+                <Button Background="#f7ce38" BorderThickness="0" Template="{StaticResource mouseHoverButton}">
                     <fa:ImageAwesome Icon="Info" Foreground="#28292e" Width="9"></fa:ImageAwesome>
                 </Button>
             </Grid>

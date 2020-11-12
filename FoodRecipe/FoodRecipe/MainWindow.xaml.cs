@@ -345,8 +345,33 @@ namespace FoodRecipe
 
         }
 
+        private void AscSort_Click(object sender, RoutedEventArgs e)
+        {
+            recipes = new BindingList<Recipe>(recipes.OrderBy(x => x.name).ToList());
 
+            dataListView.ItemsSource = recipes.Skip((currentPageIndex - 1) * itemPerPage).Take(itemPerPage);
+        }
 
+        private void DesSort_CLick(object sender, RoutedEventArgs e)
+        {
+            recipes = new BindingList<Recipe>(recipes.OrderByDescending(x => x.name).ToList());
+
+            dataListView.ItemsSource = recipes.Skip((currentPageIndex - 1) * itemPerPage).Take(itemPerPage);
+        }
+
+        private void AscDateSort_Click(object sender, RoutedEventArgs e)
+        {
+            recipes = new BindingList<Recipe>(recipes.OrderBy(x => x.DateCreate).ToList());
+
+            dataListView.ItemsSource = recipes.Skip((currentPageIndex - 1) * itemPerPage).Take(itemPerPage);
+        }
+
+        private void AscDesSort_Click(object sender, RoutedEventArgs e)
+        {
+            recipes = new BindingList<Recipe>(recipes.OrderByDescending(x => x.DateCreate).ToList());
+
+            dataListView.ItemsSource = recipes.Skip((currentPageIndex - 1) * itemPerPage).Take(itemPerPage);
+        }
     }
 
 }
