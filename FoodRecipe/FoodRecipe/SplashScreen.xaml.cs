@@ -77,7 +77,7 @@ namespace FoodRecipe
             var config = ConfigurationManager.OpenExeConfiguration(
                 ConfigurationUserLevel.None);
             config.AppSettings.Settings["ShowSplashScreen"].Value = "false";
-            config.Save(ConfigurationSaveMode.Minimal);
+            config.Save(ConfigurationSaveMode.Full);
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)

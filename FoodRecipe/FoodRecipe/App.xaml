@@ -22,6 +22,28 @@
 
 
 
+        <ControlTemplate x:Key="ColorBoxHover" TargetType="Button">
+            <Grid>
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup Name="CommonStates">
+                        <VisualState Name="Normal">
+                            <Storyboard>
+                                <ColorAnimation Storyboard.TargetName="backgroundElement" Storyboard.TargetProperty="(Shape.Stroke).(SolidColorBrush.Color)" To="Transparent" Duration="0:0:0.3"/>
+                            </Storyboard>
+                        </VisualState>
+                        <VisualState Name="MouseOver">
+                            <Storyboard>
+                                <ColorAnimation Storyboard.TargetName="backgroundElement" 
+                            Storyboard.TargetProperty="(Shape.Stroke).(SolidColorBrush.Color)" To="SteelBlue" Duration="0:0:0.3"/>
+                            </Storyboard>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+                <Rectangle Name="backgroundElement" Fill="{TemplateBinding Background}" Stroke="Transparent" StrokeThickness="3"/>
+                <ContentPresenter x:Name="contentPresenter" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            </Grid>
+        </ControlTemplate>
+
         <ControlTemplate x:Key="mouseHoverButton" TargetType="Button">
             <Grid>
                 <VisualStateManager.VisualStateGroups>

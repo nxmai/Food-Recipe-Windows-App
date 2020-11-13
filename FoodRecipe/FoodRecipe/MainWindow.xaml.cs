@@ -1,20 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.IO;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace FoodRecipe
 {
@@ -26,8 +16,6 @@ namespace FoodRecipe
         public MainWindow()
         {
             InitializeComponent();
-
-
         }
 
         bool isSearching = false;
@@ -36,6 +24,8 @@ namespace FoodRecipe
         int currentPageIndex = 1;
         int itemPerPage = 8;
         int totalPage;
+        //String DefaultColor = "#f7ce38";
+        //String oldColor;
 
         public BindingList<Recipe> search_Recipes = new BindingList<Recipe>();
 
@@ -98,6 +88,13 @@ namespace FoodRecipe
             this.Show();
         }
 
+        private void SettingScreenClosing()
+        {
+            this.IsEnabled = true;
+            var value = ConfigurationManager.AppSettings["ShowSplashScreen"];
+            bool showSplash = bool.Parse(value);
+            
+        }
         private void detailScreenClosing()
         {
             this.Show();
@@ -218,9 +215,6 @@ namespace FoodRecipe
             var screen = new FavoriteScreen();
             this.Close();
             screen.ShowDialog();
-
-
-
         }
 
         private static readonly string[] VietNamChar = new string[]
@@ -372,6 +366,19 @@ namespace FoodRecipe
 
             dataListView.ItemsSource = recipes.Skip((currentPageIndex - 1) * itemPerPage).Take(itemPerPage);
         }
+
+        private void Setting_Click(object sender, RoutedEventArgs e)
+        {
+            var main = this;
+            var settingScreen = new SettingScreen();
+            settingScreen.Show();
+            settingScreen.Topmost = true;
+            settingScreen.Focus();
+            this.IsEnabled = false;
+            settingScreen.Dying += SettingScreenClosing;
+        }
+
+
     }
 
 }

@@ -127,8 +127,8 @@
             </Grid>
 
             <Grid Grid.Column="3">
-                <Button Background="#f7ce38" BorderThickness="0" Template="{StaticResource mouseHoverButton}">
-                    <fa:ImageAwesome Icon="Question" Foreground="#28292e" Width="14"></fa:ImageAwesome>
+                <Button Background="#f7ce38" BorderThickness="0" Click="Setting_Click" Template="{StaticResource mouseHoverButton}">
+                    <fa:ImageAwesome Icon="Cogs" Foreground="#28292e" Width="20" ></fa:ImageAwesome>
                 </Button>
             </Grid>
 

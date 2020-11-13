@@ -172,6 +172,19 @@ namespace FoodRecipe
             this.load();
             this.Show();
         }
-
+        private void SettingScreenClosing()
+        {
+            this.IsEnabled = true;
+        }
+        private void Setting_Click(object sender, RoutedEventArgs e)
+        {
+            var main = this;
+            var settingScreen = new SettingScreen();
+            settingScreen.Show();
+            settingScreen.Topmost = true;
+            settingScreen.Focus();
+            this.IsEnabled = false;
+            settingScreen.Dying += SettingScreenClosing;
+        }
     }
 }

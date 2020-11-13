@@ -134,7 +134,7 @@
 
             <Grid Grid.Column="0">
                 <Button Background="#f7ce38" BorderThickness="0" Template="{StaticResource mouseHoverButton}">
-                    <fa:ImageAwesome Icon="Home" Foreground="#28292c" Width="18"></fa:ImageAwesome>
+                    <fa:ImageAwesome Icon="Home" Foreground="#28292c" Width="18"/>
                 </Button>
             </Grid>
 
@@ -151,8 +151,8 @@
             </Grid>
 
             <Grid Grid.Column="3">
-                <Button Background="#f7ce38" BorderThickness="0" Template="{StaticResource mouseHoverButton}">
-                    <fa:ImageAwesome Icon="Question" Foreground="#28292e" Width="14"></fa:ImageAwesome>
+                <Button Name="Setting" Background="#f7ce38" BorderThickness="0" Template="{StaticResource mouseHoverButton}" Click="Setting_Click">
+                    <fa:ImageAwesome Icon="Cogs" Foreground="#28292e" Width="20"></fa:ImageAwesome>
                 </Button>
             </Grid>
 
