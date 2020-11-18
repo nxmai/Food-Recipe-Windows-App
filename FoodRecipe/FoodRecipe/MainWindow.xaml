@@ -8,8 +8,11 @@
         
         mc:Ignorable="d"
         Title="HomeScreen" Height="650" Width="1000" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Loaded="Window_Loaded">
-   
-    
+
+    <Window.Icon>
+        <BitmapImage UriSource="Icon/house.png" RenderOptions.BitmapScalingMode="HighQuality"></BitmapImage>
+    </Window.Icon>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="90"/>
@@ -74,24 +77,26 @@
         </Grid>
 
         <Grid Grid.Row="2">
-            <StackPanel Margin="70 0 600 0" Orientation="Horizontal" >
-                <ComboBox Width="200" Margin="15 0 15 0" Height="30" Background="White"  >
-                    <StackPanel>
-                        <Button Height="30" Width="150" Content="Z->A" FontSize="16" Click="DesSort_CLick" Margin="15 0 15 0" Background="White" Foreground="#28292e" FontWeight="DemiBold" BorderThickness="0"></Button>
-                    </StackPanel>
-                    <StackPanel>
-                        <Button Height="30" Width="150" Content="A->Z" FontSize="16" Click="AscSort_Click" Margin="15 0 15 0" Background="White" Foreground="#28292e" FontWeight="DemiBold" BorderThickness="0"></Button>
-                    </StackPanel>
-                    <StackPanel>
-                        <Button Height="30" Width="150" Content="Ascending Date" FontSize="16" Click="AscDateSort_Click" Margin="15 0 15 0" Background="White" Foreground="#28292e" FontWeight="DemiBold" BorderThickness="0"></Button>
-                    </StackPanel>
-                    <StackPanel>
-                        <Button Height="30" Width="150" Content="Descending Date" FontSize="16" Click="AscDesSort_Click" Margin="15 0 15 0" Background="White" Foreground="#28292e" FontWeight="DemiBold" BorderThickness="0"></Button>
-                    </StackPanel>
+            <StackPanel Margin="84 0 600 0" Orientation="Horizontal" >
+                <Button Height="25" Width="40" FontSize="13" Click="DesSort_CLick" Margin="10 0 5 0" Background="White" Foreground="#28292e" FontWeight="DemiBold" BorderThickness="0">
+                    <fa:ImageAwesome Icon="SortAlphaDesc" Foreground="#28292e" Width="35"></fa:ImageAwesome>
+                </Button>
 
-                </ComboBox>
+                <Button Height="25" Width="40" FontSize="13" Click="AscSort_Click" Margin="10 0 5 0" Background="White" Foreground="#28292e" FontWeight="DemiBold" BorderThickness="0">
+                    <fa:ImageAwesome Icon="SortAlphaAsc" Foreground="#28292e" Width="35" ></fa:ImageAwesome>
+                </Button>
+
+                <Button Height="25" Width="40"  FontSize="13" Click="AscDateSort_Click" Margin="15 0 5 0" Background="White" Foreground="#28292e" FontWeight="DemiBold" BorderThickness="0">
+                    <fa:ImageAwesome Icon="SortAsc" Foreground="#28292e" Width="35"></fa:ImageAwesome>
+                </Button>
+
+                <Button Height="25" Width="40" FontSize="13" Click="AscDesSort_Click" Margin="15 0 5 0" Background="White" Foreground="#28292e" FontWeight="DemiBold" BorderThickness="0">
+                    <fa:ImageAwesome Icon="SortDesc" Foreground="#28292e" Width="35"></fa:ImageAwesome>
+                </Button>
+
+
             </StackPanel>
-            
+
             <StackPanel Margin="730 0 10 0" Orientation="Horizontal">
                 <Button Name="first" Click="First_Click" Margin="5,0,5,-0.333" Width="50" Height="55" FontSize="15"
                 VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" 
@@ -157,7 +162,7 @@
             </Grid>
 
             <Grid Grid.Column="4">
-                <Button Background="#f7ce38" BorderThickness="0" Template="{StaticResource mouseHoverButton}">
+                <Button Background="#f7ce38" BorderThickness="0" Template="{StaticResource mouseHoverButton}" Click="Information_Click">
                     <fa:ImageAwesome Icon="Info" Foreground="#28292e" Width="9"></fa:ImageAwesome>
                 </Button>
             </Grid>

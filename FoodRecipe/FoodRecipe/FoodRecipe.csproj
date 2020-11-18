@@ -255,12 +255,21 @@
     <None Include="Data\Ba Chỉ Chiên Giòn\thumbnail.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <Resource Include="Icon\add2.png" />
+    <Resource Include="Icon\background.png" />
+    <Resource Include="Icon\boy.png" />
+    <Resource Include="Icon\boy2.png" />
     <Content Include="Icon\first.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Icon\hamburger.png" />
+    <Resource Include="Icon\house.png" />
+    <Resource Include="Icon\girl.png" />
     <Content Include="Icon\last.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Icon\love.png" />
+    <Resource Include="Icon\loupe.png" />
     <Content Include="Icon\next.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -285,6 +294,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Icon\settings.png" />
     <Content Include="Icon\up.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

@@ -12,6 +12,11 @@
             <GradientStop Color="#FFFFE8AD" Offset="0"/>
         </LinearGradientBrush>
     </Window.Background>
+
+    <Window.Icon>
+        <BitmapImage UriSource="Icon/add2.png" RenderOptions.BitmapScalingMode="HighQuality"></BitmapImage>
+    </Window.Icon>
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1.5*"></ColumnDefinition>

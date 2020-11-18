@@ -7,6 +7,11 @@
         xmlns:fa="http://schemas.fontawesome.io/icons/"
         mc:Ignorable="d"
         Title="FavoriteScreen" Height="650" Width="1000" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" >
+
+    <Window.Icon>
+        <BitmapImage UriSource="Icon/love.png" RenderOptions.BitmapScalingMode="HighQuality"></BitmapImage>
+    </Window.Icon>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="70"/>
@@ -132,8 +137,8 @@
                 </Button>
             </Grid>
 
-            <Grid Grid.Column="4">
-                <Button Background="#f7ce38" BorderThickness="0" Template="{StaticResource mouseHoverButton}">
+            <Grid Grid.Column="4" Height="45" Margin="0.333,0" VerticalAlignment="Bottom">
+                <Button Background="#f7ce38" BorderThickness="0" Template="{StaticResource mouseHoverButton}" Click="Information_Click">
                     <fa:ImageAwesome Icon="Info" Foreground="#28292e" Width="9"></fa:ImageAwesome>
                 </Button>
             </Grid>

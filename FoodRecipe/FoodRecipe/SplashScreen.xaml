@@ -6,6 +6,11 @@
         xmlns:local="clr-namespace:FoodRecipe"
         mc:Ignorable="d"
         Title="Splash Screen" Height="550" Width="550" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Loaded="Window_Loaded" >
+
+    <Window.Icon>
+        <BitmapImage UriSource="Icon/hamburger.png" RenderOptions.BitmapScalingMode="HighQuality"></BitmapImage>
+    </Window.Icon>
+
     <Canvas>
         <Image Height="215" Canvas.Left="40" Canvas.Top="24" RenderOptions.BitmapScalingMode="HighQuality" 
                Width="215" Name="image1"/>
@@ -29,4 +34,7 @@
 
 
     </Canvas>
+
+    
+    
 </Window>

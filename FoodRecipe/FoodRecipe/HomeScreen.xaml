@@ -6,6 +6,99 @@
         xmlns:local="clr-namespace:FoodRecipe"
         xmlns:fa="http://schemas.fontawesome.io/icons/"
         mc:Ignorable="d"
-        Title="Window2" Height="550" Width="900">
-    
+        Title="Information" Height="650" Width="1000" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Loaded="Window_Loaded">
+
+    <Window.Icon>
+        <BitmapImage UriSource="Icon/background.png" RenderOptions.BitmapScalingMode="HighQuality"></BitmapImage>
+    </Window.Icon>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="45"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <TextBlock Text="Food Recipe App - Window Programming" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="25" FontWeight="Black" Foreground="Orange"></TextBlock>
+        </Grid>
+        
+        <Grid Grid.Row="1">
+            <StackPanel Orientation="Horizontal" Margin="20">
+                <Image Source="Icon/girl.png" Margin="100 0 0 0"></Image>
+                <StackPanel Orientation="Vertical" Margin="50 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock Text="Nguyễn Xuân Mai - 18120056" VerticalAlignment="Center" Margin="20 0 0 10" FontSize="20" FontWeight="Bold" Foreground="#28292e"></TextBlock>
+                    <TextBlock Text="FIT - HCMUS" VerticalAlignment="Center" Margin="20 0 0 0" FontSize="20" FontWeight="Bold" Foreground="#28292e"></TextBlock>
+                </StackPanel>
+                
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <StackPanel Orientation="Horizontal" Margin="20">
+                <Image Source="Icon/boy.png" Margin="100 0 0 0"></Image>
+                <StackPanel Orientation="Vertical" Margin="50 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock Text="Khưu Thùy Kỳ - 18120049" VerticalAlignment="Center" Margin="20 0 0 10" FontSize="20" FontWeight="Bold" Foreground="#28292e"></TextBlock>
+                    <TextBlock Text="FIT - HCMUS" VerticalAlignment="Center" Margin="20 0 0 0" FontSize="20" FontWeight="Bold" Foreground="#28292e"></TextBlock>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="3">
+            <StackPanel Orientation="Horizontal" Margin="20">
+                <Image Source="Icon/boy2.png" Margin="100 0 0 0"></Image>
+                <StackPanel Orientation="Vertical" Margin="50 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock Text="Dương Bội Long - 18120200" VerticalAlignment="Center" Margin="20 0 0 10" FontSize="20" FontWeight="Bold" Foreground="#28292e"></TextBlock>
+                    <TextBlock Text="FIT - HCMUS" VerticalAlignment="Center" Margin="20 0 0 0" FontSize="20" FontWeight="Bold" Foreground="#28292e"></TextBlock>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+
+
+        <Grid Height="45" VerticalAlignment="Bottom" Background="#f7ce38" Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Button Background="#f7ce38" BorderThickness="0" Template="{StaticResource mouseHoverButton}">
+                    <fa:ImageAwesome Icon="Home" Foreground="#28292c" Width="18"/>
+                </Button>
+            </Grid>
+
+            <Grid Grid.Column="1">
+                <Button Background="#f7ce38" BorderThickness="0" Click="toFavoriteScreen_Click" Template="{StaticResource mouseHoverButton}">
+                    <fa:ImageAwesome Icon="Heart" Foreground="#28292e" Width="17"></fa:ImageAwesome>
+                </Button>
+            </Grid>
+
+            <Grid Grid.Column="2">
+                <Button Background="#f7ce38" BorderThickness="0" Name="addRecipe" Click="addRecipe_Click" Template="{StaticResource mouseHoverButton}">
+                    <fa:ImageAwesome Icon="Plus" Foreground="#28292e" Width="17"></fa:ImageAwesome>
+                </Button>
+            </Grid>
+
+            <Grid Grid.Column="3">
+                <Button Name="Setting" Background="#f7ce38" BorderThickness="0" Template="{StaticResource mouseHoverButton}" Click="Setting_Click">
+                    <fa:ImageAwesome Icon="Cogs" Foreground="#28292e" Width="20"></fa:ImageAwesome>
+                </Button>
+            </Grid>
+
+            <Grid Grid.Column="4">
+                <Button Background="#f7ce38" BorderThickness="0" Template="{StaticResource mouseHoverButton}">
+                    <fa:ImageAwesome Icon="Info" Foreground="#28292e" Width="9"></fa:ImageAwesome>
+                </Button>
+            </Grid>
+
+
+        </Grid>
+
+    </Grid>
+
 </Window>

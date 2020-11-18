@@ -26,6 +26,51 @@ namespace FoodRecipe
             
         }
 
+        private void toFavoriteScreen_Click(object sender, RoutedEventArgs e)
+        {
+            var screen = new FavoriteScreen();
+            this.Close();
+            screen.ShowDialog();
+        }
 
+        private void addRecipe_Click(object sender, RoutedEventArgs e)
+        {
+            var addRecipeScreen = new AddRecipeWindow();
+            addRecipeScreen.Dying += addRecipeScreenClosing;
+            this.Hide();
+            addRecipeScreen.Show();
+        }
+
+        private void addRecipeScreenClosing()
+        {
+            this.load();
+            this.Show();
+        }
+
+        private void Setting_Click(object sender, RoutedEventArgs e)
+        {
+            var main = this;
+            var settingScreen = new SettingScreen();
+            settingScreen.Show();
+            settingScreen.Topmost = true;
+            settingScreen.Focus();
+            this.IsEnabled = false;
+            settingScreen.Dying += SettingScreenClosing;
+        }
+
+        private void SettingScreenClosing()
+        {
+            this.IsEnabled = true;
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            load();
+        }
+
+        private void load()
+        {
+            return;
+        }
     }
 }

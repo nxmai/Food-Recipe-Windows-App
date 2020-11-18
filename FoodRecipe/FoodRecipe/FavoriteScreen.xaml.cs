@@ -186,5 +186,12 @@ namespace FoodRecipe
             this.IsEnabled = false;
             settingScreen.Dying += SettingScreenClosing;
         }
+
+        private void Information_Click(object sender, RoutedEventArgs e)
+        {
+            var screen = new Window2();
+            this.Close();
+            screen.ShowDialog();
+        }
     }
 }

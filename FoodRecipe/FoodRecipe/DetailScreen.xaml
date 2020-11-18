@@ -8,6 +8,11 @@
          Title="Detail Screen" Height="650" Width="1000" Loaded="Window_Loaded"
         WindowStartupLocation="CenterScreen"
         Closing="Window_Closing"  ResizeMode="NoResize">
+
+    <Window.Icon>
+        <BitmapImage UriSource="Icon/loupe.png" RenderOptions.BitmapScalingMode="HighQuality"></BitmapImage>
+    </Window.Icon>
+
     <StackPanel Orientation="Horizontal">
         <ScrollViewer VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Disabled" Width="300" HorizontalAlignment="Left" >
             <StackPanel Width="300" Background="AliceBlue" Name="stack_Panel_Detail_Left">
