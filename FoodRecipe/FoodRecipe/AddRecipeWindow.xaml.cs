@@ -321,6 +321,7 @@ namespace FoodRecipe
 
             StepDescription.Text = "Step Description";
             StepDescription.Foreground = new SolidColorBrush(Colors.Gray);
+            StepDescription.IsEnabled = true;
 
             AddThumbnail.Visibility = Visibility.Visible;
             Thumbnail.Children.Clear();

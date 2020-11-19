@@ -104,7 +104,7 @@
         <StackPanel  Grid.Column="1" Grid.Row="0">
             <Border CornerRadius="10" Background="White" BorderThickness="0" Margin="10,10,10.4,10" Padding="2" Height="250">
                 <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-                    <TextBox Name="StepDescription" FontSize="20" Background="Transparent" BorderBrush="Transparent" Text="Step Description" Foreground="Gray" Padding="5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" GotFocus="StepDescription_GotFocus" LostFocus="StepDescription_LostFocus" Height="220" Width="535" />
+                    <TextBox Name="StepDescription" FontSize="20" Background="Transparent" BorderBrush="Transparent" Text="Step Description" Foreground="Gray" Padding="5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" GotFocus="StepDescription_GotFocus" LostFocus="StepDescription_LostFocus" Height="220" Width="535" TextWrapping="Wrap" AcceptsReturn="True"/>
                 </StackPanel>
             </Border>
         </StackPanel>

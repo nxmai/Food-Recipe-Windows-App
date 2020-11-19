@@ -80,7 +80,8 @@ namespace FoodRecipe
                         file.WriteLine($"Ingredient : {this.ingredient}");*/
                         file.WriteLine($"{this.isFavorite}");
                         file.WriteLine($"{this.youtubeLink}");
-                        this.ingredient = this.ingredient.Replace('\n', ',');
+                        this.ingredient = this.ingredient.Replace('\n',' ');
+                        this.ingredient = this.ingredient.Replace('\r', ',');
                         file.WriteLine($"{this.ingredient}");
                         file.WriteLine($"{this.heartShape}");
                         file.WriteLine($"{this.heartColor}");
